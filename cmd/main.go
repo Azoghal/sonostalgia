@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"html/template"
+	"os"
+
+	sonostalgia "github.com/azoghal/sonostalgia/src"
+)
 
 func main() {
-	fmt.Println("I'm going to build your static website oh yea")
+	tmpl, err := template.ParseGlob("src/templates/*.html")
+	if err != nil {
+		panic(err)
+	}
+
+	err = tmpl.ExecuteTemplate(os.Stdout, "memory.template.html", sonostalgia.ExampleMemory)
+	if err != nil {
+		panic(err)
+	}
 }

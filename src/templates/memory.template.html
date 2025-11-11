@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.PageTitle}}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <header class="header">
+                <h1 class="memory-title">{{.Title}}</h1>
+                <time class="memory-date">{{.Date}}</time>
+            </header>
+
+            {{range .Songs}}
+            <section class="song-list">
+                <div class="song-item">
+                    <div class="song-icon"></div>
+                    <div class="song-details">
+                        <div class="song-name">{{.Name}}</div>
+                        <div class="song-artist">{{.Artist}}</div>
+                    </div>
+                    <time class="song-date">{{.RelevantDate}}</time>
+                </div>
+            </section>
+            {{end}}
+
+            <article class="content">
+                <p>{{.Content}}</p>
+            </article>
+
+            {{if .OtherSongs}}
+            <section class="more-songs">
+                <h2 class="section-title">Related Songs</h2>
+                
+                {{range .OtherSongs}}
+                <div class="song-item">
+                    <div class="song-icon"></div>
+                    <div class="song-details">
+                        <div class="song-name">{{.Name}}</div>
+                        <div class="song-artist">{{.Artist}}</div>
+                    </div>
+                    <time class="song-date">{{.RelevantDate}}</time>
+                </div>
+                {{end}}
+
+            </section>
+            {{end}}
+        </main>
+
+        <aside class="sidebar">
+            <div class="side-content">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#memories">All Memories</a></li>
+                    <li><a href="#years">By Year</a></li>
+                    <li><a href="#playlists">Playlists</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

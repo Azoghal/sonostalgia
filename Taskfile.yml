@@ -16,4 +16,4 @@ tasks:
     deps:
       - build
     cmds: 
-      - echo "now i template"
+      - ./build/cmd
