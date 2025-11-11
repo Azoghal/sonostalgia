@@ -1,0 +1,19 @@
+# https://taskfile.dev
+
+version: '3'
+
+#vars 
+
+tasks:
+  build:
+    desc: "build the go binary"
+    dir: cmd
+    cmds: 
+      - go build -o ../build 
+
+  build-webpage:
+    desc: "do the templating and produce website artefacts"
+    deps:
+      - build
+    cmds: 
+      - echo "now i template"
