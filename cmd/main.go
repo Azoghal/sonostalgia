@@ -14,6 +14,7 @@ var templateParamMap = map[string]any{
 	"index.template.html":    sonostalgia.ExampleIndex,
 	"about.template.html":    sonostalgia.ExampleAbout,
 	"memories.template.html": sonostalgia.ExampleMemories,
+	"years.template.html":    sonostalgia.ExampleYears,
 	"memory.template.html":   sonostalgia.ExampleMemory,
 }
 
