@@ -1,6 +1,6 @@
 package sonostalgia
 
-type MemoryParams struct {
+type Memory struct {
 	// Head
 	PageTitle string
 
@@ -28,7 +28,7 @@ type MemorySong struct {
 }
 
 var (
-	ExampleMemory = MemoryParams{
+	ExampleMemory = Memory{
 		PageTitle: "Ageas Bowl 1:1s",
 		Title:     "Cricket 1:1s with Sam at the Ageas bowl",
 		Date:      "2016-2019",

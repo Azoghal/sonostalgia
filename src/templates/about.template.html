@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonostalgia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <header class="header">
+                <h1 class="page-title">About Sonostalgia</h1>
+            </header>
+
+            <section class="about-section">
+                <h2>Why I Wanted to Make This</h2>
+                <p>Hearing a song that instantly conjures a vivid memory is special. Even more so when it's a specific moment that you've not thought of in years.</p>
+                <p>I often joke that I have a </i>sieve brain</i>. So many great moments that I've forgotten. Some of those moments can be found again with the right song.</p>
+                <p>I wanted somewhere to record those songs that take me back, so I decided to build it.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>The Technical Side</h2>
+                <p>This site is statically built using golang templates.</p>
+            </section>
+
+
+            <div class="stats" style="margin-top: 50px;">
+                <div class="stat-card">
+                    <div class="stat-number">{{.EarliestMemory}}</div>
+                    <div class="stat-label">Earliest Memory</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{.MemoryCount}}</div>
+                    <div class="stat-label">Memories Documented</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{.SongCount}}</div>
+                    <div class="stat-label">Songs Mentioned</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{.ArtistCount}}</div>
+                    <div class="stat-label">Artists Mentioned</div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="side-content">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="memories.html">All Memories</a></li>
+                    <li><a href="years.html">Years</a></li>
+                    <li><a href="playlists.html">Playlists</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

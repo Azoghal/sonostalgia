@@ -10,6 +10,8 @@ import (
 )
 
 var templateParamMap = map[string]any{
+	"index.template.html":  sonostalgia.ExampleIndex,
+	"about.template.html":  sonostalgia.ExampleAbout,
 	"memory.template.html": sonostalgia.ExampleMemory,
 }
 
