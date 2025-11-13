@@ -9,10 +9,12 @@ import (
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 )
 
+// For now we're hardcoding these but we'll actually parse these from files
 var templateParamMap = map[string]any{
-	"index.template.html":  sonostalgia.ExampleIndex,
-	"about.template.html":  sonostalgia.ExampleAbout,
-	"memory.template.html": sonostalgia.ExampleMemory,
+	"index.template.html":    sonostalgia.ExampleIndex,
+	"about.template.html":    sonostalgia.ExampleAbout,
+	"memories.template.html": sonostalgia.ExampleMemories,
+	"memory.template.html":   sonostalgia.ExampleMemory,
 }
 
 func main() {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonostalgia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <header class="header">
+                <h1 class="page-title">All Memories</h1>
+                <p class="page-subtitle">Everything I've remembered to add... so far!</p>
+            </header>
+
+            <div class="memory-grid">
+                {{range .AllMemories}}
+                <div class="memory-card">
+                    <h3 class="memory-card-title">{{.Title}}</h3>
+                    <time class="memory-card-date">{{.Date}}</time>
+                    <p class="memory-card-excerpt">{{.Subtitle}}</p>
+                    <div class="memory-card-songs">♪ {{len .Songs}} songs</div>
+                </div>
+                {{end}}
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="side-content">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="memories.html" class="active">All Memories</a></li>
+                    <li><a href="years.html">Years</a></li>
+                    <li><a href="playlists.html">Playlists</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
