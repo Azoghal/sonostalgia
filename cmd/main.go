@@ -11,6 +11,7 @@ import (
 
 // For now we're hardcoding these but we'll actually parse these from files
 var templateParamMap = map[string]any{
+	"style.css":              struct{}{},
 	"index.template.html":    sonostalgia.ExampleIndex,
 	"about.template.html":    sonostalgia.ExampleAbout,
 	"memories.template.html": sonostalgia.ExampleMemories,
@@ -19,7 +20,7 @@ var templateParamMap = map[string]any{
 }
 
 func main() {
-	htmlTemplates, err := template.ParseGlob("src/templates/*.html")
+	htmlTemplates, err := template.ParseGlob("src/templates/*")
 	if err != nil {
 		panic(err)
 	}
