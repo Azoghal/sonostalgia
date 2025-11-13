@@ -2,19 +2,65 @@ package main
 
 import (
 	"html/template"
+	"log"
 	"os"
+	"path/filepath"
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 )
 
+var templateParamMap = map[string]any{
+	"memory.template.html": sonostalgia.ExampleMemory,
+}
+
 func main() {
-	tmpl, err := template.ParseGlob("src/templates/*.html")
+	htmlTemplates, err := template.ParseGlob("src/templates/*.html")
 	if err != nil {
 		panic(err)
 	}
 
-	err = tmpl.ExecuteTemplate(os.Stdout, "memory.template.html", sonostalgia.ExampleMemory)
-	if err != nil {
-		panic(err)
+	outputDir := "output"
+	if err := os.MkdirAll(outputDir, 0755); err != nil {
+		log.Fatal("Error creating output directory:", err)
 	}
+
+	err = doTemplate(htmlTemplates, outputDir)
+	if err != nil {
+		log.Fatal("error doing templates")
+	}
+}
+
+func doTemplate(htmlTemplates *template.Template, outputDir string) error {
+	// Execute each template and save to a file
+	for _, t := range htmlTemplates.Templates() {
+		templateName := t.Name()
+		log.Printf("Rendering template: %s", templateName)
+
+		// Create output file
+		outputPath := filepath.Join(outputDir, templateName)
+		f, err := os.Create(outputPath)
+		if err != nil {
+			log.Printf("Error creating file %s: %v", outputPath, err)
+			return err
+		}
+
+		templateParams, ok := templateParamMap[templateName]
+		if !ok {
+			log.Printf("Error finding template params")
+			return err
+		}
+
+		// Execute template to the file
+		err = t.Execute(f, templateParams)
+		if err != nil {
+			log.Printf("Error executing template %s: %v", templateName, err)
+			f.Close()
+			return err
+		}
+
+		f.Close()
+		log.Printf("Successfully created: %s", outputPath)
+	}
+
+	return nil
 }
