@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 )
@@ -40,10 +41,11 @@ func doTemplate(htmlTemplates *template.Template, outputDir string) error {
 	// Execute each template and save to a file
 	for _, t := range htmlTemplates.Templates() {
 		templateName := t.Name()
+		destinationName := strings.Replace(templateName, ".template", "", 1)
 		log.Printf("Rendering template: %s", templateName)
 
 		// Create output file
-		outputPath := filepath.Join(outputDir, templateName)
+		outputPath := filepath.Join(outputDir, destinationName)
 		f, err := os.Create(outputPath)
 		if err != nil {
 			log.Printf("Error creating file %s: %v", outputPath, err)

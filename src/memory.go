@@ -10,16 +10,16 @@ type Memory struct {
 	Date     string
 
 	// Songs
-	Songs []MemorySong
+	Songs []Song
 
 	// Content / Memory
 	Content string // string for now - might want to work out what to do to support markdown?
 
 	// Other Songs
-	OtherSongs []MemorySong
+	OtherSongs []Song
 }
 
-type MemorySong struct {
+type Song struct {
 	Name         string
 	SongLink     string
 	Artist       string
@@ -32,7 +32,7 @@ var (
 		PageTitle: "Ageas Bowl 1:1s",
 		Title:     "Cricket 1:1s with Sam at the Ageas bowl",
 		Date:      "2016-2019",
-		Songs: []MemorySong{
+		Songs: []Song{
 			{
 				Name:         "Pristine",
 				SongLink:     "",
@@ -52,6 +52,6 @@ Having too much pizza and pepsi at pizza hut, feeling like I was going to explod
 The bowling machine with LED screen. The spin bowling machine.
 
 Speedy trips back along the M27 and A31, radio 4.`,
-		OtherSongs: []MemorySong{},
+		OtherSongs: []Song{},
 	}
 )
