@@ -1,11 +1,14 @@
 package main
 
 import (
+	"bytes"
 	"html/template"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/yuin/goldmark"
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 )
@@ -21,9 +24,18 @@ var templateParamMap = map[string]any{
 }
 
 func main() {
-	htmlTemplates, err := template.ParseGlob("src/templates/*")
+
+	funcMap := template.FuncMap{
+		"markdown": func(md string) template.HTML {
+			var buf bytes.Buffer
+			goldmark.Convert([]byte(md), &buf)
+			return template.HTML(buf.String())
+		},
+	}
+
+	htmlTemplates, err := template.New("").Funcs(funcMap).ParseGlob("src/templates/*")
 	if err != nil {
-		panic(err)
+		log.Fatal("Error parsing templates: ", err)
 	}
 
 	outputDir := "output"
@@ -38,9 +50,16 @@ func main() {
 }
 
 func doTemplate(htmlTemplates *template.Template, outputDir string) error {
+
 	// Execute each template and save to a file
 	for _, t := range htmlTemplates.Templates() {
 		templateName := t.Name()
+
+		// skip the empty template
+		if templateName == "" {
+			continue
+		}
+
 		destinationName := strings.Replace(templateName, ".template", "", 1)
 		log.Printf("Rendering template: %s", templateName)
 

@@ -28,7 +28,7 @@
             {{end}}
 
             <article class="content">
-                <p>{{.Content}}</p>
+                <p>{{.Content | markdown}}</p>
             </article>
 
             {{if .OtherSongs}}
