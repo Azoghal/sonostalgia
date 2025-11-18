@@ -9,14 +9,3 @@ type Index struct {
 
 	RecentMemories []Memory
 }
-
-var (
-	ExampleIndex = Index{
-		MemoryCount:      1,
-		SongCount:        1,
-		ArtistCount:      1,
-		YearsWithEntries: 1,
-
-		RecentMemories: []Memory{ExampleMemory},
-	}
-)

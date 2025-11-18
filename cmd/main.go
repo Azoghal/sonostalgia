@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"log"
 	"os"
@@ -12,16 +13,6 @@ import (
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 )
-
-// For now we're hardcoding these but we'll actually parse these from files
-var templateParamMap = map[string]any{
-	"style.css":              struct{}{},
-	"index.template.html":    sonostalgia.ExampleIndex,
-	"about.template.html":    sonostalgia.ExampleAbout,
-	"memories.template.html": sonostalgia.ExampleMemories,
-	"years.template.html":    sonostalgia.ExampleYears,
-	"memory.template.html":   sonostalgia.ExampleMemory,
-}
 
 func main() {
 
@@ -38,25 +29,82 @@ func main() {
 		log.Fatal("Error parsing templates: ", err)
 	}
 
+	memories, err := loadMemories("src/memories/*.yaml")
+	if err != nil {
+		log.Fatal("Error parsing memories: ", err)
+	}
+
+	if len(memories) < 1 {
+		log.Fatal("No memories parsed")
+	}
+
+	params, err := produceTemplateParams(memories)
+	if err != nil {
+		log.Fatal("failed to produce template params", err)
+	}
+
 	outputDir := "output"
 	if err := os.MkdirAll(outputDir, 0755); err != nil {
 		log.Fatal("Error creating output directory:", err)
 	}
 
-	err = doTemplate(htmlTemplates, outputDir)
+	err = doTemplate(htmlTemplates, outputDir, params)
 	if err != nil {
 		log.Fatal("error doing templates")
 	}
 }
 
-func doTemplate(htmlTemplates *template.Template, outputDir string) error {
+// load all the memories
+func loadMemories(pattern string) ([]*sonostalgia.Memory, error) {
+	files, err := filepath.Glob(pattern)
+	if err != nil {
+		return nil, err
+	}
+
+	var memories []*sonostalgia.Memory
+	for _, file := range files {
+		memory, err := sonostalgia.LoadMemory(file)
+		if err != nil {
+			return nil, fmt.Errorf("error loading %s: %w", file, err)
+		}
+		memories = append(memories, memory)
+	}
+
+	return memories, nil
+}
+
+// parse the loaded memories for the details to fill in each page's params
+func produceTemplateParams(memories []*sonostalgia.Memory) (map[string]any, error) {
+
+	// todo noddy for now, sort later
+	memory := *memories[0]
+
+	templateParamMap := map[string]any{
+		"style.css": struct{}{},
+		// "index.template.html":    sonostalgia.ExampleIndex,
+		// "about.template.html": sonostalgia.ExampleAbout,
+		// "memories.template.html": sonostalgia.ExampleMemories,
+		// "years.template.html":    sonostalgia.ExampleYears,
+		"memory.template.html": memory,
+	}
+
+	return templateParamMap, nil
+
+}
+
+func doTemplate(htmlTemplates *template.Template, outputDir string, templateParamMap map[string]any) error {
 
 	// Execute each template and save to a file
 	for _, t := range htmlTemplates.Templates() {
 		templateName := t.Name()
+		var (
+			templateParams any
+			ok             bool
+		)
 
-		// skip the empty template
-		if templateName == "" {
+		// skip any templates that we've not got params for
+		if templateParams, ok = templateParamMap[templateName]; !ok {
+			log.Printf("Params not found, skipping template: %s", templateName)
 			continue
 		}
 
@@ -68,12 +116,6 @@ func doTemplate(htmlTemplates *template.Template, outputDir string) error {
 		f, err := os.Create(outputPath)
 		if err != nil {
 			log.Printf("Error creating file %s: %v", outputPath, err)
-			return err
-		}
-
-		templateParams, ok := templateParamMap[templateName]
-		if !ok {
-			log.Printf("Error finding template params")
 			return err
 		}
 

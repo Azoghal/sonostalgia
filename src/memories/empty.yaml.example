@@ -1,0 +1,22 @@
+shortTitle:
+title:
+subtitle:
+date: # Use quotes for dates to ensure string format
+
+songs:
+  - name:
+    link:
+    artist:
+    artistLink:
+    relevantDate:
+
+
+content: |
+  # Main Content in markdown
+  
+otherSongs:
+  - name: 
+    link: 
+    artist: 
+    artistLink: 
+    relevantDate: 
