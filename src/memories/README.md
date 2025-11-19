@@ -4,10 +4,10 @@ Memory files contains metadata and content constituting a "memory" as required b
 
 ## Format
 ```yaml
-shortTitle: <Page Title Here>
+shortTitle: Page Title Here
 title: Main Title
 subtitle: Optional Subtitle
-date: "2025-01-15"  # Use quotes for dates to ensure string format
+date: "2025-01-15"
 
 songs:
   - name: Song Title
@@ -15,12 +15,6 @@ songs:
     artist: Artist Name
     artistLink: https://open.spotify.com/artist/...
     relevantDate: Summer 2024
-  
-  - name: Another Song
-    link: https://youtube.com/watch?v=...
-    artist: Another Artist
-    artistLink: https://example.com
-    relevantDate: "December 2023"
 
 content: |
   # Main Content
