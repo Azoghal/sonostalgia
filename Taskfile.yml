@@ -9,6 +9,7 @@ tasks:
     desc: "build the go binary"
     dir: cmd
     cmds: 
+      - mkdir -p ../build
       - go build -o ../build 
 
   build-webpage:
@@ -17,3 +18,11 @@ tasks:
       - build
     cmds: 
       - ./build/cmd
+      - mkdir -p ./output/assets
+      - cp -r ./src/assets ./output/
+    
+  clean:
+    desc: "clean up"
+    cmds:
+      - rm -r build
+      - rm -r output

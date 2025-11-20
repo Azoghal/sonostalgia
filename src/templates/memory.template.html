@@ -17,7 +17,11 @@
             {{range .Songs}}
             <section class="song-list">
                 <div class="song-item">
+                    {{if .SongLink}}
+                    <img src="{{.ImageLink}}" alt="{{.Name}}" class="song-image">
+                    {{else}}
                     <div class="song-icon"></div>
+                    {{end}}
                     <div class="song-details">
                         <div class="song-name">{{.Name}}</div>
                         <div class="song-artist">{{.Artist}}</div>

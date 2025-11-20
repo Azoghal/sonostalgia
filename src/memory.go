@@ -23,6 +23,7 @@ type Song struct {
 	Artist       string `yaml:"artist"`
 	ArtistLink   string `yaml:"artistLink"`
 	RelevantDate string `yaml:"relevantDate"` // string as it's free-form
+	ImageLink    string `yaml:"imageLink"`
 	// SpotifyId string - could use this to populate the above for each song rather than having to manaully find them all
 }
 

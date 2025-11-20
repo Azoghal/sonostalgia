@@ -38,12 +38,14 @@
                 <h2 class="section-title">Recent Memories</h2>
                 <div class="memory-grid">
                     {{range .RecentMemories}}
-                    <div class="memory-card">
-                        <h3 class="memory-card-title">{{.Title}}</h3>
-                        <time class="memory-card-date">{{.Date}}</time>
-                        {{if .Subtitle}}<p class="memory-card-excerpt">{{.Subtitle}}</p>{{end}}
-                        <div class="memory-card-songs">♪ {{ len .Songs }} Songs</div>
-                    </div>
+                        <a  href="{{.OutputTitle}}.html" class="memory-card-link" id="{{.OutputTitle}}">
+                        <div class="memory-card">
+                            <h3 class="memory-card-title">{{.Title}}</h3>
+                            <time class="memory-card-date">{{.Date}}</time>
+                            {{if .Subtitle}}<p class="memory-card-excerpt">{{.Subtitle}}</p>{{end}}
+                            <div class="memory-card-songs">♪ {{ len .Songs }} Songs</div>
+                        </div>
+                    </a>
                     {{end}}
                 </div>
             </section>
