@@ -4,6 +4,7 @@ Memory files contains metadata and content constituting a "memory" as required b
 
 ## Format
 ```yaml
+outputTitle: Output Filename here (<bob> => bob.html)
 shortTitle: Page Title Here
 title: Main Title
 subtitle: Optional Subtitle

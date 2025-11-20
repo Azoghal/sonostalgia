@@ -7,7 +7,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/yuin/goldmark"
 
@@ -29,18 +28,9 @@ func main() {
 		log.Fatal("Error parsing templates: ", err)
 	}
 
-	memories, err := loadMemories("src/memories/*.yaml")
+	templateParams, err := load("src/memories/*.yaml")
 	if err != nil {
 		log.Fatal("Error parsing memories: ", err)
-	}
-
-	if len(memories) < 1 {
-		log.Fatal("No memories parsed")
-	}
-
-	params, err := produceTemplateParams(memories)
-	if err != nil {
-		log.Fatal("failed to produce template params", err)
 	}
 
 	outputDir := "output"
@@ -48,71 +38,77 @@ func main() {
 		log.Fatal("Error creating output directory:", err)
 	}
 
-	err = doTemplate(htmlTemplates, outputDir, params)
+	err = doTemplate(htmlTemplates, outputDir, templateParams)
 	if err != nil {
 		log.Fatal("error doing templates")
 	}
 }
 
 // load all the memories
-func loadMemories(pattern string) ([]*sonostalgia.Memory, error) {
+func load(pattern string) (*sonostalgia.Sonostalgia, error) {
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
 	}
 
-	var memories []*sonostalgia.Memory
-	for _, file := range files {
-		memory, err := sonostalgia.LoadMemory(file)
-		if err != nil {
-			return nil, fmt.Errorf("error loading %s: %w", file, err)
+	sonostalgia, err := sonostalgia.LoadSonostalgia(files)
+	if err != nil {
+		return nil, err
+	}
+
+	return sonostalgia, nil
+}
+
+type page struct {
+	templateName   string
+	outputName     string
+	templateParams any
+}
+
+func doTemplate(htmlTemplates *template.Template, outputDir string, templateParams *sonostalgia.Sonostalgia) error {
+
+	staticPages := []page{
+		{
+			templateName:   "about.template.html",
+			outputName:     "about.html",
+			templateParams: templateParams.AboutParams,
+		},
+		{
+			templateName:   "index.template.html",
+			outputName:     "index.html",
+			templateParams: templateParams.IndexParams,
+		},
+		{
+			templateName:   "memories.template.html",
+			outputName:     "memories.html",
+			templateParams: templateParams.MemoriesParams,
+		},
+		{
+			templateName:   "years.template.html",
+			outputName:     "years.html",
+			templateParams: templateParams.YearsParams,
+		},
+	}
+
+	allMemories := make([]page, len(templateParams.MemoryParams))
+	for i, memory := range templateParams.MemoryParams {
+		allMemories[i] = page{
+			templateName:   "memory.template.html",
+			outputName:     fmt.Sprintf("%s.html", memory.OutputTitle),
+			templateParams: memory,
 		}
-		memories = append(memories, memory)
 	}
-
-	return memories, nil
-}
-
-// parse the loaded memories for the details to fill in each page's params
-func produceTemplateParams(memories []*sonostalgia.Memory) (map[string]any, error) {
-
-	// todo noddy for now, sort later
-	memory := *memories[0]
-
-	templateParamMap := map[string]any{
-		"style.css": struct{}{},
-		// "index.template.html":    sonostalgia.ExampleIndex,
-		// "about.template.html": sonostalgia.ExampleAbout,
-		// "memories.template.html": sonostalgia.ExampleMemories,
-		// "years.template.html":    sonostalgia.ExampleYears,
-		"memory.template.html": memory,
-	}
-
-	return templateParamMap, nil
-
-}
-
-func doTemplate(htmlTemplates *template.Template, outputDir string, templateParamMap map[string]any) error {
+	allPages := append(staticPages, allMemories...)
 
 	// Execute each template and save to a file
-	for _, t := range htmlTemplates.Templates() {
+	for _, page := range allPages {
+		t := htmlTemplates.Lookup(page.templateName)
 		templateName := t.Name()
-		var (
-			templateParams any
-			ok             bool
-		)
 
-		// skip any templates that we've not got params for
-		if templateParams, ok = templateParamMap[templateName]; !ok {
-			log.Printf("Params not found, skipping template: %s", templateName)
-			continue
-		}
-
-		destinationName := strings.Replace(templateName, ".template", "", 1)
 		log.Printf("Rendering template: %s", templateName)
 
 		// Create output file
-		outputPath := filepath.Join(outputDir, destinationName)
+		outputPath := filepath.Join(outputDir, page.outputName)
 		f, err := os.Create(outputPath)
 		if err != nil {
 			log.Printf("Error creating file %s: %v", outputPath, err)
@@ -120,7 +116,7 @@ func doTemplate(htmlTemplates *template.Template, outputDir string, templatePara
 		}
 
 		// Execute template to the file
-		err = t.Execute(f, templateParams)
+		err = t.Execute(f, page.templateParams)
 		if err != nil {
 			log.Printf("Error executing template %s: %v", templateName, err)
 			f.Close()
