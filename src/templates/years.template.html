@@ -17,15 +17,17 @@
             
             <section class="year-section">
                 {{range .Years}}
-                <h2 class="year-header">{{.Year}}</h2>
+                <h2 class="year-header" id="{{.Year}}">{{.Year}}</h2>
                 <div class="memory-grid">
                     {{ range .Memories }}
-                    <div class="memory-card">
-                        <h3 class="memory-card-title">{{.Title}}</h3>
-                        <time class="memory-card-date">{{.Date}}</time>
-                        <p class="memory-card-excerpt">{{.Subtitle}}</p>
-                        <div class="memory-card-songs">♪ {{len .Songs}} songs</div>
-                    </div>
+                    <a  href="{{.OutputTitle}}.html" class="memory-card-link">
+                        <div class="memory-card">
+                            <h3 class="memory-card-title">{{.Title}}</h3>
+                            <time class="memory-card-date">{{.Date}}</time>
+                            <p class="memory-card-excerpt">{{.Subtitle}}</p>
+                            <div class="memory-card-songs">♪ {{len .Songs}} songs</div>
+                        </div>
+                    </a>
                     {{ end }}
                 </div>
                 {{ end }}

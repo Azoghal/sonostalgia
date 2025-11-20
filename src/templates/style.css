@@ -237,6 +237,12 @@ body {
     color: #868e96;
 }
 
+.memory-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* Year Sections */
 .year-section {
     margin-bottom: 50px;
