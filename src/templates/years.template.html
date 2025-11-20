@@ -14,8 +14,9 @@
                 <p class="page-subtitle">A chronological journey through time</p>
             </header>
 
-            {{range .Years}}
+            
             <section class="year-section">
+                {{range .Years}}
                 <h2 class="year-header">{{.Year}}</h2>
                 <div class="memory-grid">
                     {{ range .Memories }}
@@ -27,8 +28,8 @@
                     </div>
                     {{ end }}
                 </div>
+                {{ end }}
             </section>
-            {{ end }}
         </main>
 
         <aside class="sidebar">

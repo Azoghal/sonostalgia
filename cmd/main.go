@@ -69,6 +69,11 @@ func doTemplate(htmlTemplates *template.Template, outputDir string, templatePara
 
 	staticPages := []page{
 		{
+			templateName:   "style.css",
+			outputName:     "style.css",
+			templateParams: nil,
+		},
+		{
 			templateName:   "about.template.html",
 			outputName:     "about.html",
 			templateParams: templateParams.AboutParams,
