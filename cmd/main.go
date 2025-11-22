@@ -21,6 +21,12 @@ func main() {
 			goldmark.Convert([]byte(md), &buf)
 			return template.HTML(buf.String())
 		},
+		"statcard": func(label string, value any) sonostalgia.StatCard {
+			return sonostalgia.StatCard{
+				Label: label,
+				Value: value,
+			}
+		},
 	}
 
 	htmlTemplates, err := template.New("").Funcs(funcMap).ParseGlob("src/templates/*")

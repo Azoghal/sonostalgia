@@ -15,53 +15,26 @@
             </div>
 
             <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-number">{{.MemoryCount}}</div>
-                    <div class="stat-label">Memories</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">{{.SongCount}}</div>
-                    <div class="stat-label">Songs</div>
-                </div>
-                 <div class="stat-card">
-                    <div class="stat-number">{{.ArtistCount}}</div>
-                    <div class="stat-label">Artists</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">{{.YearsWithEntries}}</div>
-                    <div class="stat-label">Years</div>
-                </div>
+                {{template "statCard" statcard "Memories" .MemoryCount}}
+                {{template "statCard" statcard "Songs" .SongCount}}
+                {{template "statCard" statcard "Artists" .ArtistCount}}
+                {{template "statCard" statcard "Years" .YearsWithEntries}}
             </div>
 
             {{ if .RecentMemories }}
             <section>
                 <h2 class="section-title">Recent Memories</h2>
                 <div class="memory-grid">
-                    {{range .RecentMemories}}
-                        <a  href="{{.OutputTitle}}.html" class="memory-card-link" id="{{.OutputTitle}}">
-                        <div class="memory-card">
-                            <h3 class="memory-card-title">{{.Title}}</h3>
-                            <time class="memory-card-date">{{.Date}}</time>
-                            {{if .Subtitle}}<p class="memory-card-excerpt">{{.Subtitle}}</p>{{end}}
-                            <div class="memory-card-songs">♪ {{ len .Songs }} Songs</div>
-                        </div>
-                    </a>
+                    {{range $memory := .RecentMemories}}
+                        {{template "memoryCard" $memory}}
                     {{end}}
                 </div>
             </section>
             {{end}}
         </main>
 
-        <aside class="sidebar">
-            <div class="side-content">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="memories.html">All Memories</a></li>
-                    <li><a href="years.html">Years</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </div>
-        </aside>
+        {{template "navPanel" "Home"}}
+
     </div>
 </body>
 </html>

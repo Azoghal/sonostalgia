@@ -27,35 +27,14 @@
 
 
             <div class="stats" style="margin-top: 50px;">
-                <div class="stat-card">
-                    <div class="stat-number">{{.EarliestMemory}}</div>
-                    <div class="stat-label">Earliest Memory</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">{{.MemoryCount}}</div>
-                    <div class="stat-label">Memories Documented</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">{{.SongCount}}</div>
-                    <div class="stat-label">Songs Mentioned</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">{{.ArtistCount}}</div>
-                    <div class="stat-label">Artists Mentioned</div>
-                </div>
+                {{template "statCard" statcard "Earliest Documented Memory" .EarliestMemory}}
+                {{template "statCard" statcard "Memories Documented" .MemoryCount}}
+                {{template "statCard" statcard "Songs Mentioned" .SongCount}}
+                {{template "statCard" statcard "Artists Mentioned" .ArtistCount}}
             </div>
         </main>
 
-        <aside class="sidebar">
-            <div class="side-content">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="memories.html">All Memories</a></li>
-                    <li><a href="years.html">Years</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                </ul>
-            </div>
-        </aside>
+        {{template "navPanel" "About"}}
     </div>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{{define "songCard"}}
+<div class="song-item">
+    {{if .SongLink}}
+    <img src="{{.ImageLink}}" alt="{{.Name}}" class="song-image">
+    {{else}}
+    <div class="song-icon"></div>
+    {{end}}
+    <div class="song-details">
+        <a href="{{.SongLink}}" class="song-name-link">
+            <div class="song-name">{{.Name}} </div>
+        </a>
+        <div class="song-artist">
+            <a href="{{.ArtistLink}}" class="artist-name-link">
+                {{.Artist}}                         
+            </a>
+        </div>
+    </div>
+    <time class="song-date">{{.RelevantDate}}</time>
+</div>
+{{end}}

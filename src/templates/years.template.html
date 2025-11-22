@@ -19,31 +19,15 @@
                 {{range .Years}}
                 <h2 class="year-header" id="{{.Year}}">{{.Year}}</h2>
                 <div class="memory-grid">
-                    {{ range .Memories }}
-                    <a  href="{{.OutputTitle}}.html" class="memory-card-link">
-                        <div class="memory-card">
-                            <h3 class="memory-card-title">{{.Title}}</h3>
-                            <time class="memory-card-date">{{.Date}}</time>
-                            <p class="memory-card-excerpt">{{.Subtitle}}</p>
-                            <div class="memory-card-songs">♪ {{len .Songs}} songs</div>
-                        </div>
-                    </a>
-                    {{ end }}
+                    {{range $memory := .Memories}}
+                        {{template "memoryCard" $memory}}
+                    {{end}}
                 </div>
                 {{ end }}
             </section>
         </main>
 
-        <aside class="sidebar">
-            <div class="side-content">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="memories.html">All Memories</a></li>
-                    <li><a href="years.html" class="active">Years</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </div>
-        </aside>
+        {{template "navPanel" "Years"}}
     </div>
 </body>
 </html>

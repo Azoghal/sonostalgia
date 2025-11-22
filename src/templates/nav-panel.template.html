@@ -1,0 +1,12 @@
+{{define "navPanel"}}
+<aside class="sidebar">
+    <div class="side-content">
+        <ul>
+            <li><a href="index.html"    {{if eq . "Home"}}      class="active"  {{end}} >Home</a></li>
+            <li><a href="memories.html" {{if eq . "Memories"}}  class="active"  {{end}} >All Memories</a></li>
+            <li><a href="years.html"    {{if eq . "Years"}}     class="active"  {{end}} >Years</a></li>
+            <li><a href="about.html"    {{if eq . "About"}}     class="active"  {{end}} >About</a></li>
+        </ul>
+    </div>
+</aside>
+{{end}}

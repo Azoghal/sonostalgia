@@ -15,25 +15,8 @@
             </header>
 
             <section class="song-list">
-                {{range .Songs}}
-                    <div class="song-item">
-                        {{if .SongLink}}
-                        <img src="{{.ImageLink}}" alt="{{.Name}}" class="song-image">
-                        {{else}}
-                        <div class="song-icon"></div>
-                        {{end}}
-                        <div class="song-details">
-                            <a href="{{.SongLink}}" class="song-name-link">
-                                <div class="song-name">{{.Name}} </div>
-                            </a>
-                            <div class="song-artist">
-                                <a href="{{.ArtistLink}}" class="artist-name-link">
-                                    {{.Artist}}                         
-                                </a>
-                            </div>
-                        </div>
-                        <time class="song-date">{{.RelevantDate}}</time>
-                    </div>
+                {{range $song := .Songs}}
+                    {{template "songCard" $song }}
                 {{end}}
             </section>
 
@@ -44,32 +27,14 @@
             {{if .OtherSongs}}
             <section class="more-songs">
                 <h2 class="section-title">Related Songs</h2>
-                
-                {{range .OtherSongs}}
-                <div class="song-item">
-                    <div class="song-icon"></div>
-                    <div class="song-details">
-                        <div class="song-name">{{.Name}}</div>
-                        <div class="song-artist">{{.Artist}}</div>
-                    </div>
-                    <time class="song-date">{{.RelevantDate}}</time>
-                </div>
+                {{range $otherSong := .OtherSongs}}
+                    {{template "songCard" $otherSong }}
                 {{end}}
-
             </section>
             {{end}}
         </main>
 
-        <aside class="sidebar">
-            <div class="side-content">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="memories.html">All Memories</a></li>
-                    <li><a href="years.html">Years</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </div>
-        </aside>
+        {{template "navPanel" ""}}
     </div>
 </body>
 </html>
