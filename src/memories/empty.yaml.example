@@ -1,3 +1,4 @@
+outputTitle:
 shortTitle:
 title:
 subtitle:
@@ -9,7 +10,7 @@ songs:
     artist:
     artistLink:
     relevantDate:
-
+    imageLink:
 
 content: |
   # Main Content in markdown
@@ -19,4 +20,5 @@ otherSongs:
     link: 
     artist: 
     artistLink: 
-    relevantDate: 
+    relevantDate:
+    imageLink:

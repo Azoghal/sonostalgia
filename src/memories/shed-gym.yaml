@@ -10,7 +10,7 @@ songs:
     artist: Cloud Nothings
     artistLink: "https://open.spotify.com/artist/6rnbB5fuUuCSsspvFsxIpT?si=rM9w9q2TStuv3fsVDC8FMQ"
     relevantDate: December 2022
-    imageLink: "assets/im-not-a-part-of-me.jpg"
+    imageLink: "assets/im-not-part-of-me.jpg"
 
 
 content: |
@@ -22,15 +22,15 @@ content: |
   
 otherSongs:
   - name: Stay Useless
-    link: 
+    link: "https://open.spotify.com/track/1CuYdDDDUEoskL117qpVho?si=183e40b1d1da4a85"
     artist: Cloud Nothings
-    artistLink: 
-    relevantDate: 
-    imageLink: 
+    artistLink: "https://open.spotify.com/artist/6rnbB5fuUuCSsspvFsxIpT?si=dAzxXEg7RmG1ntPqyT4Xyw"
+    relevantDate: December 2022
+    imageLink: "assets/stay-useless.png"
   - name: Maybe October
-    link: 
+    link: "https://open.spotify.com/track/2ou8EQgoiqk73toLQrEIsc?si=74739bded2ee48fa"
     artist: Dekker
-    artistLink: 
-    relevantDate: 
-    imageLink: 
+    artistLink: "https://open.spotify.com/artist/2Udd2jgFaz8tXG1w3PyMtN?si=mpfg-zYvTcm9s4_MoU31BQ"
+    relevantDate: December 2022
+    imageLink: "assets/maybe-october.jpg"
     

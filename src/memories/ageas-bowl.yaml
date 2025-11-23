@@ -5,10 +5,11 @@ date: "2016-2019"
 
 songs:
   - name: "Pristine"
-    link: ""
+    link: "https://open.spotify.com/track/52ug4BzkXF06EkVX8axf8y?si=87e8dc43c4c4416d"
     artist: "Mantaraybryn"
-    artistLink: ""
+    artistLink: "https://open.spotify.com/artist/4U7hzJON7jzAwaWqB4raLf?si=KcZRf09dS4KBFJDTdAcrlg"
     relevantDate: "March 2017"
+    imageLink: "assets/pristine.jpg"
 
 content: |
   Sol driving me to the ageas bowl for my 1:1 with Sam. 

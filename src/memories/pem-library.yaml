@@ -1,14 +1,16 @@
-shortTitle:
-title:
+outputTitle: pem-library
+shortTitle: Pem Library Nights
+title: Late Nights in Pembroke College Library
 subtitle:
-date: # Use quotes for dates to ensure string format
+date: "2022"
 
 songs:
   - name: "The Peace Offering"
     link: "https://open.spotify.com/track/1sjQI7DoQI5VwKwRfINhX0?si=fda173e3f84c4309"
     artist: Bloc Party
     artistLink: "https://open.spotify.com/artist/3MM8mtgFzaEJsqbjZBSsHJ?si=XSfqaGgFQbqsn1bSTPdAMA"
-    relevantDate: "2022"
+    relevantDate: "April 2022"
+    imageLink: "assets/the-peace-offering.png"
 
 content: |
   Late nights working upstairs in the library in Pembroke.
@@ -19,3 +21,4 @@ otherSongs:
     artist: 
     artistLink: 
     relevantDate: 
+    imageLink:
