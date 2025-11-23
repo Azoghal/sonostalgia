@@ -3,6 +3,7 @@ package sonostalgia
 import (
 	"fmt"
 	"log"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -81,10 +82,14 @@ func LoadSonostalgia(memoryFiles []string) (*Sonostalgia, error) {
 			minYear = yearInt
 		}
 		yearsForParams = append(yearsForParams, Year{
-			Year:     year,
+			Year:     yearInt,
 			Memories: yearMemories,
 		})
 	}
+
+	sort.Slice(yearsForParams, func(i, j int) bool {
+		return yearsForParams[i].Year < yearsForParams[j].Year
+	})
 
 	songCount = len(songSet)
 	artistCount = len(artistSet)

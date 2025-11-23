@@ -6,6 +6,6 @@ type Years struct {
 }
 
 type Year struct {
-	Year     string
+	Year     int
 	Memories []Memory
 }
