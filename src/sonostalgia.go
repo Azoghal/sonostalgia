@@ -87,8 +87,9 @@ func LoadSonostalgia(memoryFiles []string) (*Sonostalgia, error) {
 		})
 	}
 
+	// We want more recent memories up top? High year beats low
 	sort.Slice(yearsForParams, func(i, j int) bool {
-		return yearsForParams[i].Year < yearsForParams[j].Year
+		return yearsForParams[i].Year > yearsForParams[j].Year
 	})
 
 	songCount = len(songSet)
