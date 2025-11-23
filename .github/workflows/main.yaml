@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - ftp-upload-workflow
 
 jobs:
   build-and-deploy:
