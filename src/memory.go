@@ -1,6 +1,7 @@
 package sonostalgia
 
 import (
+	"fmt"
 	"os"
 
 	"gopkg.in/yaml.v3"
@@ -40,4 +41,13 @@ func LoadMemory(filename string) (*Memory, error) {
 	}
 
 	return &memory, nil
+}
+
+func (s Song) String() string {
+	return fmt.Sprintf(`
+- name: %s
+  artist: %s
+  songLink: %s
+  artistLink: %s
+  imageLink: %s`, s.Name, s.Artist, s.SongLink, s.ArtistLink, s.ImageLink)
 }
