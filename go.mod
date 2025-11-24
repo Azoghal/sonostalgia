@@ -11,6 +11,8 @@ require (
 )
 
 require (
+	github.com/alexflint/go-arg v1.6.0 // indirect
+	github.com/alexflint/go-scalar v1.2.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	golang.org/x/net v0.23.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect

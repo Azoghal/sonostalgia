@@ -3,9 +3,11 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"os"
 
+	"github.com/alexflint/go-arg"
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 	"github.com/joho/godotenv"
 	spotify "github.com/zmb3/spotify/v2"
@@ -16,15 +18,23 @@ import (
 /* fetches all the info to populate a song in order to populate song(s) in memories
 
 - name:
-    link:
-    artist:
-    artistLink:
-    relevantDate:
-    imageLink:
+  link:
+  artist:
+  artistLink:
+  relevantDate:
+  imageLink:
 
 */
 
+type Args struct {
+	SongIds      []string `arg:"--songids"      help:"list of spotify ids for the main songs"`
+	OtherSongIds []string `arg:"--othersongids" help:"list of spotify ids for the other songs"`
+}
+
 func main() {
+	var args Args
+	arg.MustParse(&args)
+
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("failed to load env file")
@@ -47,14 +57,29 @@ func main() {
 	httpClient := spotifyauth.New().Client(ctx, token)
 	client := spotify.New(httpClient)
 
-	testId := "52ug4BzkXF06EkVX8axf8y"
+	fmt.Println()
 
-	song, err := lookupSongById(ctx, client, testId)
-	if err != nil {
-		log.Fatalf("failed to lookup song: %s", err)
+	for _, songId := range args.SongIds {
+		song, err := lookupSongById(ctx, client, songId)
+		if err != nil {
+			log.Fatalf("failed to lookup song: %s", err)
+		}
+
+		fmt.Println(song.String())
 	}
 
-	log.Println(song.String())
+	fmt.Println()
+	fmt.Println()
+
+	for _, songId := range args.OtherSongIds {
+		song, err := lookupSongById(ctx, client, songId)
+		if err != nil {
+			log.Fatalf("failed to lookup song: %s", err)
+		}
+
+		fmt.Println(song.String())
+	}
+
 }
 
 func lookupSongById(ctx context.Context, client *spotify.Client, id string) (*sonostalgia.Song, error) {
@@ -65,8 +90,6 @@ func lookupSongById(ctx context.Context, client *spotify.Client, id string) (*so
 	if err != nil {
 		return nil, errors.New("track request failed")
 	}
-
-	log.Printf("TRACK: %s\nARTISTS: %s\nALBUM_ID: %s\n", track.Name, track.Artists, track.Album.ID)
 
 	album, err := client.GetAlbum(ctx, track.Album.ID, spotify.Market("GB"))
 	if err != nil {

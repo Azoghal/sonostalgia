@@ -1,0 +1,25 @@
+outputTitle: "intel-lab"
+shortTitle: Intel Lab Demos
+title: Intel Lab Demonstrations
+subtitle: 
+date: 2022
+
+songs:
+  - name: Through The Echoes
+    link: Paolo Nutini
+    artist: https://open.spotify.com/track/78NogwkqVC4GBQMxOwOQrC 
+    artistLink: https://open.spotify.com/artist/7x5rK9BClDQ8wmCkYAGsQp
+    imageLink: "assets/through-the-echoes.jpg"
+    relevantDate: "Easter 2022"
+
+  - name: Acid Eyes
+    link: Paolo Nutini
+    artist: https://open.spotify.com/track/6LTQO44rCg2mNQckEJdrSF 
+    artistLink: https://open.spotify.com/artist/7x5rK9BClDQ8wmCkYAGsQp
+    imageLink: "assets/through-the-echoes.jpg"
+    relevantDate: "Easter 2022"
+
+content: |
+  Demonstrations in the Intel Lab at the Computer Lab. Saw our demonstration marker enjoying dinner at Zhong Hua when we went later that day.
+
+  First year electronics demos with Gedeminas. Thomas and Thomas over the table. 

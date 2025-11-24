@@ -9,16 +9,43 @@ songs:
     link: "https://open.spotify.com/track/1sjQI7DoQI5VwKwRfINhX0?si=fda173e3f84c4309"
     artist: Bloc Party
     artistLink: "https://open.spotify.com/artist/3MM8mtgFzaEJsqbjZBSsHJ?si=XSfqaGgFQbqsn1bSTPdAMA"
-    relevantDate: "April 2022"
+    relevantDate: "Easter 2022"
     imageLink: "assets/the-peace-offering.png"
+  - name: Hey Jo
+    link: The Districts
+    artist: https://open.spotify.com/track/63vjHtoOEqBk0zEhooYCQp 
+    artistLink: https://open.spotify.com/artist/3HZgaiR960RFqx9d4LPraD
+    imageLink: "assets/hey-jo.jpg"
+    relevantDate: "Easter 2022"
+  - name: The Internet
+    link: Manchester Orchestra
+    artist: https://open.spotify.com/track/6t37INpiHOQDdbAI5A4IQ1 
+    artistLink: https://open.spotify.com/artist/5wFXmYsg3KFJ8BDsQudJ4f
+    imageLink: "assets/the-internet.jpg"
+    relevantDate: "Easter 2022"
+
 
 content: |
-  Late nights working upstairs in the library in Pembroke.
+  *The Peace Offering*: Late nights working upstairs in the library in Pembroke. Lots of people sniffing, Adam going around handing out tissues to the worst offenders. Usually emptied out by 11pm, only a couple of weeks when I was there late enough for them to come kick us out. 
+
+  *The Internet/Hey Jo*: Working at the large table in the Rosenthal Art Library., my usual spot on the right hand side. Leaving laptop and books out to go to trough.
+
+  Running Graph Lenia simulations, writing up dissertation. 
+
+  Working in the law library with Adam, James & co. Popping over to R basement to play some table tennis.
   
 otherSongs:
-  - name: 
-    link: 
-    artist: 
-    artistLink: 
-    relevantDate: 
-    imageLink:
+  - name: Telepath
+    link: Manchester Orchestra
+    artist: https://open.spotify.com/track/2i8fcnTT5iItxMNwa8mfr3 
+    artistLink: https://open.spotify.com/artist/5wFXmYsg3KFJ8BDsQudJ4f
+    imageLink: "assets/hey-jo.jpg"
+    relevantDate: Easter 2022
+
+  - name: Bed Head
+    link: Manchester Orchestra
+    artist: https://open.spotify.com/track/5yqYLlMg2c0J883O33QuqA 
+    artistLink: https://open.spotify.com/artist/5wFXmYsg3KFJ8BDsQudJ4f
+    imageLink: "assets/the-internet.jpg"
+    relevantDate: Easter 2022
+  

@@ -46,8 +46,9 @@ func LoadMemory(filename string) (*Memory, error) {
 func (s Song) String() string {
 	return fmt.Sprintf(`
 - name: %s
-  artist: %s
-  songLink: %s
+  link: %s
+  artist: %s 
   artistLink: %s
-  imageLink: %s`, s.Name, s.Artist, s.SongLink, s.ArtistLink, s.ImageLink)
+  imageLink: %s
+  relevantDate: %s`, s.Name, s.Artist, s.SongLink, s.ArtistLink, s.ImageLink, s.RelevantDate)
 }
