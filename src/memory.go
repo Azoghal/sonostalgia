@@ -50,5 +50,5 @@ func (s Song) String() string {
   artist: %s 
   artistLink: %s
   imageLink: %s
-  relevantDate: %s`, s.Name, s.Artist, s.SongLink, s.ArtistLink, s.ImageLink, s.RelevantDate)
+  relevantDate: %s`, s.Name, s.SongLink, s.Artist, s.ArtistLink, s.ImageLink, s.RelevantDate)
 }

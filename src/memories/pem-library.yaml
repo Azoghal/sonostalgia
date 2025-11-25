@@ -12,14 +12,14 @@ songs:
     relevantDate: "Easter 2022"
     imageLink: "assets/the-peace-offering.png"
   - name: Hey Jo
-    link: The Districts
-    artist: https://open.spotify.com/track/63vjHtoOEqBk0zEhooYCQp 
+    artist: The Districts
+    link: https://open.spotify.com/track/63vjHtoOEqBk0zEhooYCQp 
     artistLink: https://open.spotify.com/artist/3HZgaiR960RFqx9d4LPraD
     imageLink: "assets/hey-jo.jpg"
     relevantDate: "Easter 2022"
   - name: The Internet
-    link: Manchester Orchestra
-    artist: https://open.spotify.com/track/6t37INpiHOQDdbAI5A4IQ1 
+    artist: Manchester Orchestra
+    link: https://open.spotify.com/track/6t37INpiHOQDdbAI5A4IQ1 
     artistLink: https://open.spotify.com/artist/5wFXmYsg3KFJ8BDsQudJ4f
     imageLink: "assets/the-internet.jpg"
     relevantDate: "Easter 2022"
@@ -36,15 +36,15 @@ content: |
   
 otherSongs:
   - name: Telepath
-    link: Manchester Orchestra
-    artist: https://open.spotify.com/track/2i8fcnTT5iItxMNwa8mfr3 
+    artist: Manchester Orchestra
+    link: https://open.spotify.com/track/2i8fcnTT5iItxMNwa8mfr3 
     artistLink: https://open.spotify.com/artist/5wFXmYsg3KFJ8BDsQudJ4f
     imageLink: "assets/hey-jo.jpg"
     relevantDate: Easter 2022
 
   - name: Bed Head
-    link: Manchester Orchestra
-    artist: https://open.spotify.com/track/5yqYLlMg2c0J883O33QuqA 
+    artist: Manchester Orchestra
+    link: https://open.spotify.com/track/5yqYLlMg2c0J883O33QuqA 
     artistLink: https://open.spotify.com/artist/5wFXmYsg3KFJ8BDsQudJ4f
     imageLink: "assets/the-internet.jpg"
     relevantDate: Easter 2022
