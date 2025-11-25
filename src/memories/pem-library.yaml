@@ -6,9 +6,9 @@ date: "2022"
 
 songs:
   - name: "The Peace Offering"
-    link: "https://open.spotify.com/track/1sjQI7DoQI5VwKwRfINhX0?si=fda173e3f84c4309"
+    link: "https://open.spotify.com/track/1sjQI7DoQI5VwKwRfINhX0"
     artist: Bloc Party
-    artistLink: "https://open.spotify.com/artist/3MM8mtgFzaEJsqbjZBSsHJ?si=XSfqaGgFQbqsn1bSTPdAMA"
+    artistLink: "https://open.spotify.com/artist/3MM8mtgFzaEJsqbjZBSsHJ"
     relevantDate: "Easter 2022"
     imageLink: "assets/the-peace-offering.png"
   - name: Hey Jo
