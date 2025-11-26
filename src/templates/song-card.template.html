@@ -10,9 +10,12 @@
             <div class="song-name">{{.Name}} </div>
         </a>
         <div class="song-artist">
-            <a href="{{.ArtistLink}}" class="artist-name-link">
-                {{.Artist}}                         
+            {{ range $i, $artist := .Artists -}}
+            {{if not (eq $i 0)}},{{end -}}
+            <a href="{{$artist.Link}}" class="artist-name-link">
+                {{$artist.Name -}}                         
             </a>
+            {{- end}}
         </div>
     </div>
     <time class="song-date">{{.RelevantDate}}</time>

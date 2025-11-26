@@ -7,8 +7,9 @@ date: 2022
 songs:
   - name: "I'm Not Part of Me"
     link: "https://open.spotify.com/track/1Q99DArN4UxX8yJD7JWCyL"
-    artist: Cloud Nothings
-    artistLink: "https://open.spotify.com/artist/6rnbB5fuUuCSsspvFsxIpT"
+    artists:
+      - name: Cloud Nothings
+        link: "https://open.spotify.com/artist/6rnbB5fuUuCSsspvFsxIpT"
     relevantDate: December 2022
     imageLink: "assets/im-not-part-of-me.jpg"
 
@@ -23,14 +24,17 @@ content: |
 otherSongs:
   - name: Stay Useless
     link: "https://open.spotify.com/track/1CuYdDDDUEoskL117qpVho"
-    artist: Cloud Nothings
-    artistLink: "https://open.spotify.com/artist/6rnbB5fuUuCSsspvFsxIpT"
+    artists:
+      - name: Cloud Nothings
+        link: "https://open.spotify.com/artist/6rnbB5fuUuCSsspvFsxIpT"
     relevantDate: December 2022
     imageLink: "assets/stay-useless.png"
+    
   - name: Maybe October
     link: "https://open.spotify.com/track/2ou8EQgoiqk73toLQrEIsc"
-    artist: Dekker
-    artistLink: "https://open.spotify.com/artist/2Udd2jgFaz8tXG1w3PyMtN"
+    artists:
+      - name: Dekker
+        link: "https://open.spotify.com/artist/2Udd2jgFaz8tXG1w3PyMtN"
     relevantDate: December 2022
     imageLink: "assets/maybe-october.jpg"
     

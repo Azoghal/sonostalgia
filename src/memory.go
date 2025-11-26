@@ -3,6 +3,7 @@ package sonostalgia
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"gopkg.in/yaml.v3"
 )
@@ -19,13 +20,17 @@ type Memory struct {
 }
 
 type Song struct {
-	Name         string `yaml:"name"`
-	SongLink     string `yaml:"link"`
-	Artist       string `yaml:"artist"`
-	ArtistLink   string `yaml:"artistLink"`
-	RelevantDate string `yaml:"relevantDate"` // string as it's free-form
-	ImageLink    string `yaml:"imageLink"`
+	Name         string   `yaml:"name"`
+	SongLink     string   `yaml:"link"`
+	Artists      []Artist `yaml:"artists"`
+	RelevantDate string   `yaml:"relevantDate"` // string as it's free-form
+	ImageLink    string   `yaml:"imageLink"`
 	// SpotifyId string - could use this to populate the above for each song rather than having to manaully find them all
+}
+
+type Artist struct {
+	Name string
+	Link string
 }
 
 func LoadMemory(filename string) (*Memory, error) {
@@ -44,11 +49,20 @@ func LoadMemory(filename string) (*Memory, error) {
 }
 
 func (s Song) String() string {
+	artistStrings := []string{}
+	for _, a := range s.Artists {
+		artistStrings = append(artistStrings, a.String())
+	}
 	return fmt.Sprintf(`
 - name: %s
   link: %s
-  artist: %s 
-  artistLink: %s
+  artists: %s
   imageLink: %s
-  relevantDate: %s`, s.Name, s.SongLink, s.Artist, s.ArtistLink, s.ImageLink, s.RelevantDate)
+  relevantDate: %s`, s.Name, s.SongLink, strings.Join(artistStrings, ""), s.ImageLink, s.RelevantDate)
+}
+
+func (a Artist) String() string {
+	return fmt.Sprintf(`
+    - name: %s
+      link: %s`, a.Name, a.Link)
 }

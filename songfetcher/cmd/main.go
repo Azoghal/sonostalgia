@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
+	"unicode"
 
 	"github.com/alexflint/go-arg"
 	sonostalgia "github.com/azoghal/sonostalgia/src"
@@ -25,6 +27,11 @@ import (
   imageLink:
 
 */
+
+const (
+	minDesiredWidth = 100 // if we can, make sure all images are at least 100px width/height
+	maxDesiredWidth = 350 // if we can, try to keep the images a reasonable size
+)
 
 type Args struct {
 	SongIds      []string `arg:"--songids"      help:"list of spotify ids for the main songs"`
@@ -96,13 +103,74 @@ func lookupSongById(ctx context.Context, client *spotify.Client, id string) (*so
 		return nil, errors.New("album request failed")
 	}
 
+	artists := []sonostalgia.Artist{}
+	for _, artist := range track.Artists {
+		artists = append(artists, sonostalgia.Artist{
+			Name: artist.Name,
+			Link: artist.ExternalURLs["spotify"],
+		})
+	}
+
+	bestImageAssetUrl := fetchBestImage(album.Images, "assets", makeImageName(track.Name))
+
+	// RelevantDate left empty as it needs user input
 	song := &sonostalgia.Song{
-		Name:       track.Name,
-		Artist:     track.Artists[0].Name, // TODO need to handle multiple artists
-		SongLink:   track.ExternalURLs["spotify"],
-		ArtistLink: track.Artists[0].ExternalURLs["spotify"],
-		ImageLink:  album.Images[len(album.Images)-1].URL, // TODO do something more sensible here to get the right size
+		Name:      track.Name,
+		Artists:   artists,
+		SongLink:  track.ExternalURLs["spotify"],
+		ImageLink: bestImageAssetUrl,
 	}
 
 	return song, nil
 }
+
+func makeImageName(trackName string) string {
+	alphaOnly := strings.Map(func(r rune) rune {
+		if unicode.IsLetter(r) || unicode.IsNumber(r) || unicode.IsSpace(r) {
+			return r
+		}
+		return -1
+	}, trackName)
+
+	lowerAlphaOnly := strings.ToLower(alphaOnly)
+
+	return strings.Join(strings.Fields(lowerAlphaOnly), "-")
+}
+
+// fetchBestImage finds and downloads the image which matches the most constraints.
+// it will name the downloaded artefact outputName.<ext> where ext = jpg,png
+// if there are no images, the empty string will be returned
+func fetchBestImage(images []spotify.Image, outputDir string, outputName string) string {
+
+	var image *spotify.Image = nil
+	bestScore := 0
+
+	for _, img := range images {
+		width := int(img.Width)
+		score := 1
+		if width < maxDesiredWidth {
+			score += 1
+		}
+		if width > minDesiredWidth {
+			score += 1
+		}
+		if score > bestScore {
+			image = &img
+			bestScore = score
+		}
+	}
+
+	// download
+	fmt.Printf("should be downloading to: %s/%s.jpg\n", outputDir, outputName)
+
+	// rename and write to output dir
+
+	// TODO actually download, rename and replace .jpeg w .jpg
+	return image.URL
+}
+
+// How to make more useful:
+// just run the tool, it parses all your memory files and:
+// 1. Tells you any files that have songs that are missing fields?
+// 2. Rewrites any such files with details fetched from spotify
+// 3. Downloads the images in the most appropriate size, ready for renaming.

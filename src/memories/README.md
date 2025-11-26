@@ -13,8 +13,9 @@ date: "2025-01-15"
 songs:
   - name: Song Title
     link: https://open.spotify.com/track/...
-    artist: Artist Name
-    artistLink: https://open.spotify.com/artist/...
+    artists:
+      - name: Artist Name
+        link: https://open.spotify.com/artist/...
     relevantDate: Summer 2024
 
 content: |
@@ -32,7 +33,8 @@ content: |
 otherSongs:
   - name: Related Song
     link: https://spotify.com/...
-    artist: Artist Name
-    artistLink: https://spotify.com/artist/...
+    artists:
+      - name: Artist Name
+        link: https://open.spotify.com/artist/...
     relevantDate: "2022"
 ```

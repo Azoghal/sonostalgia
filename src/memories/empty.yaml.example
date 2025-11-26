@@ -7,8 +7,9 @@ date: # Use quotes for dates to ensure string format
 songs:
   - name:
     link:
-    artist:
-    artistLink:
+    artists:
+      - name:
+        link:
     relevantDate:
     imageLink:
 
@@ -18,7 +19,8 @@ content: |
 otherSongs:
   - name: 
     link: 
-    artist: 
-    artistLink: 
+    artists:
+      - name:
+        link:
     relevantDate:
     imageLink:

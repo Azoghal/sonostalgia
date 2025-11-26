@@ -56,8 +56,11 @@ func LoadSonostalgia(memoryFiles []string) (*Sonostalgia, error) {
 		// Add to song and artist sets.
 		// Account for duplicate songs, and songs with same name
 		for _, song := range memory.Songs {
-			songSet[fmt.Sprintf("%s|%s", song.Name, song.Artist)] = struct{}{}
-			artistSet[song.Artist] = struct{}{}
+			// TODO haven't really bothered with multi artists in the song hash
+			songSet[fmt.Sprintf("%s|%s|%d", song.Name, song.Artists[0], len(song.Artists))] = struct{}{}
+			for _, artist := range song.Artists {
+				artistSet[artist.Name] = struct{}{}
+			}
 		}
 
 		parsedDates := parseDateString(memory.Date)

@@ -6,8 +6,9 @@ date: "2016-2019"
 songs:
   - name: "Pristine"
     link: "https://open.spotify.com/track/52ug4BzkXF06EkVX8axf8y"
-    artist: "Mantaraybryn"
-    artistLink: "https://open.spotify.com/artist/4U7hzJON7jzAwaWqB4raLf"
+    artists:
+    - name: "Mantaraybryn"
+      link: "https://open.spotify.com/artist/4U7hzJON7jzAwaWqB4raLf"
     relevantDate: "March 2017"
     imageLink: "assets/pristine.jpg"
 
