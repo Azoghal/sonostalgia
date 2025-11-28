@@ -196,11 +196,3 @@ func downloadImage(url string, filepath string) error {
 
 	return nil
 }
-
-// How to make more useful:
-// just run the tool, it parses all your memory files and:
-// 1. Tells you any files that have songs that are missing fields?
-// 2. Rewrites any such files with details fetched from spotify
-// 3. Downloads the images in the most appropriate size, ready for renaming.
-
-// 3pUeWeDBE5O7kttWjXFGuQ 5XTKO227Jtu81Ni41Fi9Gj 5mEyCUtI36Jmu2KNQQ4jaw 4YgqBjoGetB0h2a0s20HMY 1eZzKmzYwini2oXcgGe5zy 74HX1HcsR135apNYpHUUZj
