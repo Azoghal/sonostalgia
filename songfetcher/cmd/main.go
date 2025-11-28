@@ -169,7 +169,7 @@ func fetchBestImage(images []spotify.Image, outputDir string, outputName string)
 		log.Printf("failed to download image: %v", err)
 	}
 
-	return outputFilename
+	return fmt.Sprintf("assets/%s", outputName)
 }
 
 func downloadImage(url string, filepath string) error {
