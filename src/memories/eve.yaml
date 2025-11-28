@@ -17,7 +17,57 @@ songs:
       - name: Rozwell
         link: https://open.spotify.com/artist/2cpbwPiqgvzIDDrxVkjQsq
     imageLink: "assets/headsick.jpg"
-    relevantDate:
+    relevantDate: February 2021
+
+  - name: FOOTSTEPS AT THE POND
+    link: https://open.spotify.com/track/3pUeWeDBE5O7kttWjXFGuQ
+    artists: 
+      - name: La Dispute
+        link: https://open.spotify.com/artist/7lQKE6HaKQcCsgLRMhsh5W
+      - name: Zeal & Ardor
+        link: https://open.spotify.com/artist/6yCjbLFZ9qAnWfsy9ujm5Y
+    imageLink: src/assets/footsteps-at-the-pond-zeal-ardor-remix.jpg
+    relevantDate: February 2021
+
+  - name: Fuck Them All
+    link: https://open.spotify.com/track/5XTKO227Jtu81Ni41Fi9Gj
+    artists: 
+      - name: The Dangerous Summer
+        link: https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj
+    imageLink: src/assets/fuck-them-all.jpg
+    relevantDate: February 2021
+
+  - name: Girls Like You
+    link: https://open.spotify.com/track/5mEyCUtI36Jmu2KNQQ4jaw
+    artists: 
+      - name: The Naked And Famous
+        link: https://open.spotify.com/artist/0oeUpvxWsC8bWS6SnpU8b9
+    imageLink: src/assets/girls-like-you.jpg
+    relevantDate: January 2021
+
+  - name: High in the Garden
+    link: https://open.spotify.com/track/4YgqBjoGetB0h2a0s20HMY
+    artists: 
+      - name: Sorcha Richardson
+        link: https://open.spotify.com/artist/04Zh21lNHZb2MCCcRcN2pc
+    imageLink: src/assets/high-in-the-garden.jpg
+    relevantDate: January 2021
+
+  - name: Give Up
+    link: https://open.spotify.com/track/1eZzKmzYwini2oXcgGe5zy
+    artists: 
+      - name: The Pack a.d.
+        link: https://open.spotify.com/artist/2gbOUPIhea9nrCmAeZBgpo
+    imageLink: src/assets/give-up.jpg
+    relevantDate: January 2021
+
+  - name: That Was A Crazy Game Of Poker
+    link: https://open.spotify.com/track/74HX1HcsR135apNYpHUUZj
+    artists: 
+      - name: O.A.R.
+        link: https://open.spotify.com/artist/1Cq0LAHFfvUTBEtMPXUidI
+    imageLink: src/assets/that-was-a-crazy-game-of-poker.jpg
+    relevantDate: January 2021
 
 content: |
   Playing EVE Online with Dad. Mining in Arnola.

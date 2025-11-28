@@ -4,7 +4,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"io"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 	"unicode"
@@ -111,7 +113,7 @@ func lookupSongById(ctx context.Context, client *spotify.Client, id string) (*so
 		})
 	}
 
-	bestImageAssetUrl := fetchBestImage(album.Images, "assets", makeImageName(track.Name))
+	bestImageAssetUrl := fetchBestImage(album.Images, "src/assets", makeImageName(track.Name))
 
 	// RelevantDate left empty as it needs user input
 	song := &sonostalgia.Song{
@@ -161,12 +163,38 @@ func fetchBestImage(images []spotify.Image, outputDir string, outputName string)
 	}
 
 	// download
-	fmt.Printf("should be downloading to: %s/%s.jpg\n", outputDir, outputName)
+	outputFilename := fmt.Sprintf("%s/%s.jpg", outputDir, outputName)
+	err := downloadImage(image.URL, outputFilename)
+	if err != nil {
+		log.Printf("failed to download image: %v", err)
+	}
 
-	// rename and write to output dir
+	return outputFilename
+}
 
-	// TODO actually download, rename and replace .jpeg w .jpg
-	return image.URL
+func downloadImage(url string, filepath string) error {
+	resp, err := http.Get(url)
+	if err != nil {
+		return fmt.Errorf("failed to fetch URL: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("bad status: %s", resp.Status)
+	}
+
+	file, err := os.Create(filepath)
+	if err != nil {
+		return fmt.Errorf("failed to create file: %w", err)
+	}
+	defer file.Close()
+
+	_, err = io.Copy(file, resp.Body)
+	if err != nil {
+		return fmt.Errorf("failed to write file: %w", err)
+	}
+
+	return nil
 }
 
 // How to make more useful:
@@ -174,3 +202,5 @@ func fetchBestImage(images []spotify.Image, outputDir string, outputName string)
 // 1. Tells you any files that have songs that are missing fields?
 // 2. Rewrites any such files with details fetched from spotify
 // 3. Downloads the images in the most appropriate size, ready for renaming.
+
+// 3pUeWeDBE5O7kttWjXFGuQ 5XTKO227Jtu81Ni41Fi9Gj 5mEyCUtI36Jmu2KNQQ4jaw 4YgqBjoGetB0h2a0s20HMY 1eZzKmzYwini2oXcgGe5zy 74HX1HcsR135apNYpHUUZj
