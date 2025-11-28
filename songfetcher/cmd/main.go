@@ -78,6 +78,7 @@ func main() {
 	}
 
 	fmt.Println()
+	fmt.Println("OTHER SONGS")
 	fmt.Println()
 
 	for _, songId := range args.OtherSongIds {
