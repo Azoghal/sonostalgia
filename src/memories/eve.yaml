@@ -19,14 +19,14 @@ songs:
     imageLink: "assets/headsick.jpg"
     relevantDate: February 2021
 
-  - name: FOOTSTEPS AT THE POND
+  - name: FOOTSTEPS AT THE POND - Zeal & Ardor Remix
     link: https://open.spotify.com/track/3pUeWeDBE5O7kttWjXFGuQ
     artists: 
       - name: La Dispute
         link: https://open.spotify.com/artist/7lQKE6HaKQcCsgLRMhsh5W
       - name: Zeal & Ardor
         link: https://open.spotify.com/artist/6yCjbLFZ9qAnWfsy9ujm5Y
-    imageLink: src/assets/footsteps-at-the-pond-zeal-ardor-remix.jpg
+    imageLink: assets/footsteps-at-the-pond-zeal-ardor-remix.jpg
     relevantDate: February 2021
 
   - name: Fuck Them All
@@ -34,7 +34,7 @@ songs:
     artists: 
       - name: The Dangerous Summer
         link: https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj
-    imageLink: src/assets/fuck-them-all.jpg
+    imageLink: assets/fuck-them-all.jpg
     relevantDate: February 2021
 
   - name: Girls Like You
@@ -42,7 +42,7 @@ songs:
     artists: 
       - name: The Naked And Famous
         link: https://open.spotify.com/artist/0oeUpvxWsC8bWS6SnpU8b9
-    imageLink: src/assets/girls-like-you.jpg
+    imageLink: assets/girls-like-you.jpg
     relevantDate: January 2021
 
   - name: High in the Garden
@@ -50,7 +50,7 @@ songs:
     artists: 
       - name: Sorcha Richardson
         link: https://open.spotify.com/artist/04Zh21lNHZb2MCCcRcN2pc
-    imageLink: src/assets/high-in-the-garden.jpg
+    imageLink: assets/high-in-the-garden.jpg
     relevantDate: January 2021
 
   - name: Give Up
@@ -58,7 +58,7 @@ songs:
     artists: 
       - name: The Pack a.d.
         link: https://open.spotify.com/artist/2gbOUPIhea9nrCmAeZBgpo
-    imageLink: src/assets/give-up.jpg
+    imageLink: assets/give-up.jpg
     relevantDate: January 2021
 
   - name: That Was A Crazy Game Of Poker
@@ -66,7 +66,7 @@ songs:
     artists: 
       - name: O.A.R.
         link: https://open.spotify.com/artist/1Cq0LAHFfvUTBEtMPXUidI
-    imageLink: src/assets/that-was-a-crazy-game-of-poker.jpg
+    imageLink: assets/that-was-a-crazy-game-of-poker.jpg
     relevantDate: January 2021
 
 content: |
