@@ -1,0 +1,28 @@
+outputTitle:
+shortTitle:
+title:
+subtitle:
+date:
+
+songs: {{- range $song := .Songs -}}
+  {{- template "song" $song -}}
+{{- end}}
+content: |
+  # Main Content in markdown
+
+{{ if .OtherSongs -}}
+otherSongs: {{- range $otherSong := .OtherSongs -}}
+  {{- template "song" $otherSong -}}
+{{- end -}}
+{{end}}
+
+{{define "song"}}
+  - name: {{.Name}}
+    link: {{.SongLink}}
+    artists: {{range $artist := .Artists}}
+      - name: {{.Name}}
+        link: {{.Link}}
+    {{- end -}}
+    relevantDate:
+    imageLink: {{.ImageLink}}
+{{end}}

@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"text/template"
 	"unicode"
 
 	"github.com/alexflint/go-arg"
@@ -36,15 +37,41 @@ const (
 )
 
 type Args struct {
-	SongIds      []string `arg:"--songids"      help:"list of spotify ids for the main songs"`
-	OtherSongIds []string `arg:"--othersongids" help:"list of spotify ids for the other songs"`
+	MemoryOutputTitle string   `arg:"-n,--name,required"      help:"the output name of the memory, e.g. eve-online"`
+	SongIds           []string `arg:"--songids,required"      help:"list of spotify ids for the main songs"`
+	OtherSongIds      []string `arg:"--othersongids" help:"list of spotify ids for the other songs"`
 }
 
+type TemplateParams struct {
+	OutputTitle string
+	Songs       []sonostalgia.Song
+	OtherSongs  []sonostalgia.Song
+}
+
+// Attempt to open the output file
+// load the memory template
+// load the env vars
+// get a spotify api client
+// lookup songs
+// lookup otherSongs
+// do template
+// write to file
 func main() {
 	var args Args
 	arg.MustParse(&args)
 
-	err := godotenv.Load()
+	fileWriter, err := os.Create(fmt.Sprintf("songfetcher/output/%s.yaml", args.MemoryOutputTitle))
+	if err != nil {
+		log.Fatalf("failed to create output file: %v", err)
+	}
+	defer fileWriter.Close()
+
+	memoryTemplate, err := template.ParseFiles("songfetcher/templates/memory.template.yaml")
+	if err != nil {
+		log.Fatal("Error parsing template: ", err)
+	}
+
+	err = godotenv.Load()
 	if err != nil {
 		log.Fatal("failed to load env file")
 	}
@@ -68,28 +95,38 @@ func main() {
 
 	fmt.Println()
 
+	songs := []sonostalgia.Song{}
+	otherSongs := []sonostalgia.Song{}
+
 	for _, songId := range args.SongIds {
 		song, err := lookupSongById(ctx, client, songId)
 		if err != nil {
-			log.Fatalf("failed to lookup song: %s", err)
+			log.Printf("FAILED to lookup song: %s\n", err)
+			continue
 		}
 
-		fmt.Println(song.String())
+		songs = append(songs, *song)
 	}
-
-	fmt.Println()
-	fmt.Println("OTHER SONGS")
-	fmt.Println()
 
 	for _, songId := range args.OtherSongIds {
 		song, err := lookupSongById(ctx, client, songId)
 		if err != nil {
-			log.Fatalf("failed to lookup song: %s", err)
+			log.Printf("FAILED to lookup song: %s\n", err)
 		}
 
-		fmt.Println(song.String())
+		otherSongs = append(otherSongs, *song)
 	}
 
+	templateParams := TemplateParams{
+		OutputTitle: args.MemoryOutputTitle,
+		Songs:       songs,
+		OtherSongs:  otherSongs,
+	}
+
+	err = memoryTemplate.Execute(fileWriter, templateParams)
+	if err != nil {
+		log.Fatalf("failed to execute template: %v", err)
+	}
 }
 
 func lookupSongById(ctx context.Context, client *spotify.Client, id string) (*sonostalgia.Song, error) {
