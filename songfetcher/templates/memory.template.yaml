@@ -1,4 +1,4 @@
-outputTitle:
+outputTitle: {{.OutputTitle}}
 shortTitle:
 title:
 subtitle:
@@ -22,7 +22,7 @@ otherSongs: {{- range $otherSong := .OtherSongs -}}
     artists: {{range $artist := .Artists}}
       - name: {{.Name}}
         link: {{.Link}}
-    {{- end -}}
+    {{- end}}
     relevantDate:
     imageLink: {{.ImageLink}}
 {{end}}

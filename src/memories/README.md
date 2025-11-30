@@ -38,3 +38,7 @@ otherSongs:
         link: https://open.spotify.com/artist/...
     relevantDate: "2022"
 ```
+
+## Generation
+
+You can more quickly generate these files by using the songfetcher program in this repo. It takes an output file name, list of song ids and list of other song ids, and will produce a prepopulated memory file. This can then be edited as desired. Separating this out from the actual templating process means there's still complete flexibility when it comes to building the website, i.e. we're not tied to a particular music platform like Spotify, which is what the songfetcher uses.

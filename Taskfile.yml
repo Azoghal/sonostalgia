@@ -6,21 +6,43 @@ version: '3'
 
 tasks:
   build:
-    desc: "build the go binary"
+    desc: "build all go binaries"
+    tasks:
+      - build-templater
+      - build-songfetcher
+    
+  build-templater:
+    desc: "build the webpage builder go binary"
     dir: cmd
     cmds: 
       - mkdir -p ../build
-      - go build -o ../build 
+      - go build -o ../build/templater 
+    
+  build-songfetcher:
+    desc: "build the song fetcher go binary"
+    dir: songfetcher/cmd
+    cmds: 
+      - mkdir -p ../../build
+      - go build -o ../../build/songfetcher
 
   build-webpage:
     desc: "do the templating and produce website artefacts"
     deps:
-      - build
+      - build-templater
     cmds: 
-      - ./build/cmd
+      - ./build/templater
       - mkdir -p ./output/assets
       - cp -r ./src/assets ./output/
-    
+
+  template-wip-memory:
+    desc: |
+      Use the song fetcher to fetch songs from the spotify API and populate a new memory.
+      Call with one argument, the filename within the src/wip-memories directory.
+    deps:
+      - build-songfetcher
+    cmds: 
+      - build/songfetcher $(xargs -a src/wip-memories/{{.CLI_ARGS}})
+
   clean:
     desc: "clean up"
     cmds:
