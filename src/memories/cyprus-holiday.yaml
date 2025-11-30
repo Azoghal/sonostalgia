@@ -1,0 +1,44 @@
+outputTitle: cyprus-holiday
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Stairway to Heaven - Remaster
+    link: https://open.spotify.com/track/0RO9W1xJoUEpq5MEelddFb
+    artists: 
+      - name: Led Zeppelin
+        link: https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp
+    relevantDate:
+    imageLink: assets/stairway-to-heaven-remaster.jpg
+
+  - name: Black Dog - Remaster
+    link: https://open.spotify.com/track/0D58ERdLBDRgT86BPnH8ps
+    artists: 
+      - name: Led Zeppelin
+        link: https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp
+    relevantDate:
+    imageLink: assets/black-dog-remaster.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Bitch
+    link: https://open.spotify.com/track/3i6qNxyVgIdUZTTi5m25EM
+    artists: 
+      - name: Meredith Brooks
+        link: https://open.spotify.com/artist/2QmLFuIDtNDmmJY3OtvinN
+    relevantDate:
+    imageLink: assets/bitch.jpg
+
+  - name: Suddenly I See
+    link: https://open.spotify.com/track/5p9XWUdvbUzmPCukOmwoU3
+    artists: 
+      - name: KT Tunstall
+        link: https://open.spotify.com/artist/5zzrJD2jXrE9dZ1AklRFcL
+    relevantDate:
+    imageLink: assets/suddenly-i-see.jpg
+
+

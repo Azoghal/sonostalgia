@@ -80,3 +80,42 @@ otherSongs:
         link: https://open.spotify.com/artist/2yUdwBLaO98tsD5fDi5it2
     imageLink: "assets/love-impaired.jpg"
     relevantDate:
+  - name: Indie Rokkers
+    link: https://open.spotify.com/track/7hDEqKECXWU1syQCwJsFCb
+    artists: 
+      - name: Soccer Mommy
+        link: https://open.spotify.com/artist/4wXchxfTTggLtzkoUhO86Q
+    relevantDate:
+    imageLink: assets/indie-rokkers.jpg
+
+  - name: Turns Blue
+    link: https://open.spotify.com/track/5FPykd7lUocj3zOLHAiCsg
+    artists: 
+      - name: Naked Giants
+        link: https://open.spotify.com/artist/4KhnLZjONKS3nuYzXoqoXi
+    relevantDate:
+    imageLink: assets/turns-blue.jpg
+
+  - name: Chameleon Skin
+    link: https://open.spotify.com/track/1yof4dWVrroHKfNbTWYPDS
+    artists: 
+      - name: The Flatliners
+        link: https://open.spotify.com/artist/6bx5jeXP6LSRVY29adUFdB
+    relevantDate:
+    imageLink: assets/chameleon-skin.jpg
+
+  - name: Selfless
+    link: https://open.spotify.com/track/2t0wwvR15fc3K1ey8OiOaN
+    artists: 
+      - name: The Strokes
+        link: https://open.spotify.com/artist/0epOFNiUfyON9EYx7Tpr6V
+    relevantDate:
+    imageLink: assets/selfless.jpg
+    
+  - name: The Adults Are Talking
+    link: https://open.spotify.com/track/5ruzrDWcT0vuJIOMW7gMnW
+    artists: 
+      - name: The Strokes
+        link: https://open.spotify.com/artist/0epOFNiUfyON9EYx7Tpr6V
+    relevantDate:
+    imageLink: assets/the-adults-are-talking.jpg

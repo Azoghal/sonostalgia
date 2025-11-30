@@ -1,0 +1,36 @@
+outputTitle: o-staircase-cooking
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Vivir Mi Vida
+    link: https://open.spotify.com/track/3QHMxEOAGD51PDlbFPHLyJ
+    artists: 
+      - name: Marc Anthony
+        link: https://open.spotify.com/artist/4wLXwxDeWQ8mtUIRPxGiD6
+    relevantDate:
+    imageLink: assets/vivir-mi-vida.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Ms. Jackson
+    link: https://open.spotify.com/track/0I3q5fE6wg7LIfHGngUTnV
+    artists: 
+      - name: Outkast
+        link: https://open.spotify.com/artist/1G9G7WwrXka3Z1r7aIDjI7
+    relevantDate:
+    imageLink: assets/ms-jackson.jpg
+
+  - name: The Heat
+    link: https://open.spotify.com/track/4Z3pwfHNEp40Fa6iqAaPf8
+    artists: 
+      - name: Jungle
+        link: https://open.spotify.com/artist/59oA5WbbQvomJz2BuRG071
+    relevantDate:
+    imageLink: assets/the-heat.jpg
+
+

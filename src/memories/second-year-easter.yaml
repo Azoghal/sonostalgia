@@ -1,0 +1,88 @@
+outputTitle: second-year-easter
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Confirmation (SSBD)
+    link: https://open.spotify.com/track/3Pqy5RRW33bhxYXN0ZZNXG
+    artists: 
+      - name: Westerman
+        link: https://open.spotify.com/artist/09s6bLEw45wioK9ytf3nsA
+    relevantDate:
+    imageLink: assets/confirmation-ssbd.jpg
+
+  - name: Your Cat
+    link: https://open.spotify.com/track/0nKrDJLm94OpQElETtklsh
+    artists: 
+      - name: Slaughter Beach, Dog
+        link: https://open.spotify.com/artist/3lWVgSwutPsiJ8Awm7OTKU
+    relevantDate:
+    imageLink: assets/your-cat.jpg
+
+  - name: September Again
+    link: https://open.spotify.com/track/068kLruVinypNfFPEujjSK
+    artists: 
+      - name: Nation of Language
+        link: https://open.spotify.com/artist/5JWBow4ywgKNQ5HBxY8hcz
+    relevantDate:
+    imageLink: assets/september-again.jpg
+
+  - name: On Division St
+    link: https://open.spotify.com/track/0gUJlYlu4cV90iyV2gTUmr
+    artists: 
+      - name: Nation of Language
+        link: https://open.spotify.com/artist/5JWBow4ywgKNQ5HBxY8hcz
+    relevantDate:
+    imageLink: assets/on-division-st.jpg
+
+  - name: Pillar of Na
+    link: https://open.spotify.com/track/3I6jfxLr3YetJK2nlqwhmx
+    artists: 
+      - name: Saintseneca
+        link: https://open.spotify.com/artist/5x3hUNIfDPxP1Kr0ZaGs64
+    relevantDate:
+    imageLink: assets/pillar-of-na.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Ding Dong Scrambled Eggs
+    link: https://open.spotify.com/track/2O43LtuDLYIzq3ElHYtGjV
+    artists: 
+      - name: Cataldo
+        link: https://open.spotify.com/artist/5rFQl8QehNSMIJVnyhTmzY
+    relevantDate:
+    imageLink: assets/ding-dong-scrambled-eggs.jpg
+
+  - name: Ms. Jackson
+    link: https://open.spotify.com/track/0I3q5fE6wg7LIfHGngUTnV
+    artists: 
+      - name: Outkast
+        link: https://open.spotify.com/artist/1G9G7WwrXka3Z1r7aIDjI7
+    relevantDate:
+    imageLink: assets/ms-jackson.jpg
+
+  - name: Must Stop (Falling in Love) [feat. Sarah Barthel of Phantogram]
+    link: https://open.spotify.com/track/6qomQtETB8ovqxCJzwJS74
+    artists: 
+      - name: ONR
+        link: https://open.spotify.com/artist/1BGDL6ycDCoa3STlZtCnHi
+      - name: Sarah Barthel
+        link: https://open.spotify.com/artist/7AVY1bJuRTZrbYW3soi1Js
+      - name: Phantogram
+        link: https://open.spotify.com/artist/1l9d7B8W0IHy3LqWsxP2SH
+    relevantDate:
+    imageLink: assets/must-stop-falling-in-love-feat-sarah-barthel-of-phantogram.jpg
+
+  - name: Grand Paradise
+    link: https://open.spotify.com/track/3M0RQYuFI7QGeu0XabDvxh
+    artists: 
+      - name: Foxing
+        link: https://open.spotify.com/artist/2dfxY7YDuYCUtWFzWTS6IR
+    relevantDate:
+    imageLink: assets/grand-paradise.jpg
+
+

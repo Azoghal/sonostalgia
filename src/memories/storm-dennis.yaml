@@ -1,0 +1,52 @@
+outputTitle: storm-dennis
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Troubleman
+    link: https://open.spotify.com/track/1dOO3KYqbyiQUXnD9U2qI3
+    artists: 
+      - name: Electric Guest
+        link: https://open.spotify.com/artist/7sgWBYtJpblXpJl2lU5WVs
+    relevantDate:
+    imageLink: assets/troubleman.jpg
+
+  - name: Kill Your Heroes
+    link: https://open.spotify.com/track/7DFk01bs34zPldpuAQsfwY
+    artists: 
+      - name: AWOLNATION
+        link: https://open.spotify.com/artist/4njdEjTnLfcGImKZu1iSrz
+    relevantDate:
+    imageLink: assets/kill-your-heroes.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Adderall
+    link: https://open.spotify.com/track/4Xx0J00u90QvnG3rwz4Itp
+    artists: 
+      - name: Max Frost
+        link: https://open.spotify.com/artist/7r8xR0LmnaAM623MmRDn1V
+    relevantDate:
+    imageLink: assets/adderall.jpg
+
+  - name: Daft Pretty Boys
+    link: https://open.spotify.com/track/58hbLmAfFQA4zbxcbRCO4P
+    artists: 
+      - name: Bad Suns
+        link: https://open.spotify.com/artist/0YhUSm86okLWldQVwJkLlP
+    relevantDate:
+    imageLink: assets/daft-pretty-boys.jpg
+
+  - name: Undisclosed Desires
+    link: https://open.spotify.com/track/0It6VJoMAare1zdV2wxqZq
+    artists: 
+      - name: Muse
+        link: https://open.spotify.com/artist/12Chz98pHFMPJEknJQMWvI
+    relevantDate:
+    imageLink: assets/undisclosed-desires.jpg
+
+

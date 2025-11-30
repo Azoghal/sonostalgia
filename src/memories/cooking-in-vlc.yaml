@@ -1,0 +1,28 @@
+outputTitle: cooking-in-vlc
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Senza un perché
+    link: https://open.spotify.com/track/21S6EicU7LXhS4ampzsOAQ
+    artists: 
+      - name: Nada
+        link: https://open.spotify.com/artist/37x1MqNXlCtuLLYSXYX7jA
+    relevantDate:
+    imageLink: assets/senza-un-perché.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Cute Without The 'E' (Cut From The Team)
+    link: https://open.spotify.com/track/6PsISpFaCEKwysPfwO9SfC
+    artists: 
+      - name: Taking Back Sunday
+        link: https://open.spotify.com/artist/24XtlMhEMNdi822vi0MhY1
+    relevantDate:
+    imageLink: assets/cute-without-the-e-cut-from-the-team.jpg
+
+

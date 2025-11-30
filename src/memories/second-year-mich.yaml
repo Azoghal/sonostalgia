@@ -1,0 +1,62 @@
+outputTitle: second-year-mich
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Naked Creatures
+    link: https://open.spotify.com/track/2ZWz0D8OafHYLtbF2VCQlK
+    artists: 
+      - name: KID DAD
+        link: https://open.spotify.com/artist/75kquE0sao8gHnZVz4bEtF
+    relevantDate:
+    imageLink: assets/naked-creatures.jpg
+
+  - name: Rat Bastards at Every Turn
+    link: https://open.spotify.com/track/3yInugIbAQjPNSKpIa6K2e
+    artists: 
+      - name: Pluralone
+        link: https://open.spotify.com/artist/5jQsMNuCW0iZeFTz6YUK8K
+    relevantDate:
+    imageLink: assets/rat-bastards-at-every-turn.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Watchmaker - Demo
+    link: https://open.spotify.com/track/1CnoMQ93KLJCIRGLcwRrWz
+    artists: 
+      - name: To Kill A King
+        link: https://open.spotify.com/artist/7yHBGaYHPXkJSVUtHiM816
+    relevantDate:
+    imageLink: assets/watchmaker-demo.jpg
+
+  - name: Heavenly Maybe - sir Was Remix
+    link: https://open.spotify.com/track/1QMtuTiU6kSysu99m4fBeg
+    artists: 
+      - name: Gengahr
+        link: https://open.spotify.com/artist/2ATweaQe83QUQVjM8LMh7J
+      - name: sir Was
+        link: https://open.spotify.com/artist/2pRRvc1D9seqK4txoe8laT
+    relevantDate:
+    imageLink: assets/heavenly-maybe-sir-was-remix.jpg
+
+  - name: Who Are You?
+    link: https://open.spotify.com/track/3B52mdo6OaGA9mMoHdAdWW
+    artists: 
+      - name: Glass Caves
+        link: https://open.spotify.com/artist/4zoylbX2qRvtWbVq0nduGG
+    relevantDate:
+    imageLink: assets/who-are-you.jpg
+
+  - name: Taste Your Love
+    link: https://open.spotify.com/track/2BeaAsf1OW14fZYRojdsvh
+    artists: 
+      - name: VC Pines
+        link: https://open.spotify.com/artist/4LQgArm1pO5Q7GuDu2qXfC
+    relevantDate:
+    imageLink: assets/taste-your-love.jpg
+
+

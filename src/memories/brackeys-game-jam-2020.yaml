@@ -1,0 +1,28 @@
+outputTitle: brackeys-game-jam-2020
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: The Middle
+    link: https://open.spotify.com/track/1Qv0S1e2uoJjTCHPaIduPU
+    artists: 
+      - name: Cog
+        link: https://open.spotify.com/artist/6gD6Pm7jo3mmKgDtyMruA6
+    relevantDate:
+    imageLink: assets/the-middle.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Wake The Dogs
+    link: https://open.spotify.com/track/5Y9cF0SXYrYiVaykw7zArQ
+    artists: 
+      - name: Donots
+        link: https://open.spotify.com/artist/2gRgzV2ooQwweEr4s7lwsg
+    relevantDate:
+    imageLink: assets/wake-the-dogs.jpg
+
+

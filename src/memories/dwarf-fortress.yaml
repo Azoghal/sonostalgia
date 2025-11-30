@@ -1,0 +1,92 @@
+outputTitle: dwarf-fortress
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Drag Me
+    link: https://open.spotify.com/track/3iseWtGohHOwOofs5s4X11
+    artists: 
+      - name: Tiny Little Houses
+        link: https://open.spotify.com/artist/2DzfwBlRGSLXCXgAKN6EFv
+    relevantDate:
+    imageLink: assets/drag-me.jpg
+
+  - name: Vicious Circle
+    link: https://open.spotify.com/track/1TQQyzPty31u3zEuFqV5Fp
+    artists: 
+      - name: FUCK ART, LET'S DANCE!
+        link: https://open.spotify.com/artist/3IkL1ld3owCvDr8939dp0t
+    relevantDate:
+    imageLink: assets/vicious-circle.jpg
+
+  - name: X21
+    link: https://open.spotify.com/track/1OxX7x3o9VytBfUSB2Qe6O
+    artists: 
+      - name: The Wholls
+        link: https://open.spotify.com/artist/1u3p7gbSruazLLj9ibDQ6X
+    relevantDate:
+    imageLink: assets/x21.jpg
+
+  - name: The Only Boy Racer Left On The Island
+    link: https://open.spotify.com/track/4LCC4aQELJVuDEY7sYvcwS
+    artists: 
+      - name: The Howl & The Hum
+        link: https://open.spotify.com/artist/3EQ310YOzcS1pJqiaoDs32
+    relevantDate:
+    imageLink: assets/the-only-boy-racer-left-on-the-island.jpg
+
+  - name: Hostages
+    link: https://open.spotify.com/track/15UzNkJygheBhHBqWxFaFv
+    artists: 
+      - name: The Howl & The Hum
+        link: https://open.spotify.com/artist/3EQ310YOzcS1pJqiaoDs32
+    relevantDate:
+    imageLink: assets/hostages.jpg
+
+  - name: Universe Next Door
+    link: https://open.spotify.com/track/4ky8sLrMfx5eISIjsn0tWi
+    artists: 
+      - name: Gran Noir
+        link: https://open.spotify.com/artist/1q1XeJKpKwJWXtGoI6lLM4
+    relevantDate:
+    imageLink: assets/universe-next-door.jpg
+
+  - name: What's Going On
+    link: https://open.spotify.com/track/34b3a3Pz9Jlz0092LMyNAB
+    artists: 
+      - name: Marvin Gaye
+        link: https://open.spotify.com/artist/3koiLjNrgRTNbOwViDipeA
+    relevantDate:
+    imageLink: assets/whats-going-on.jpg
+
+  - name: Funky Nation
+    link: https://open.spotify.com/track/6mx6RMKBWDijl4meIf4Cnq
+    artists: 
+      - name: Marvin Gaye
+        link: https://open.spotify.com/artist/3koiLjNrgRTNbOwViDipeA
+    relevantDate:
+    imageLink: assets/funky-nation.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Senza un perché
+    link: https://open.spotify.com/track/21S6EicU7LXhS4ampzsOAQ
+    artists: 
+      - name: Nada
+        link: https://open.spotify.com/artist/37x1MqNXlCtuLLYSXYX7jA
+    relevantDate:
+    imageLink: assets/senza-un-perché.jpg
+
+  - name: Easy Life
+    link: https://open.spotify.com/track/5sm3Pz5o84JQBQBxfwmJs9
+    artists: 
+      - name: Press to MECO
+        link: https://open.spotify.com/artist/1uLjfn78AsMWafGWBuVT8q
+    relevantDate:
+    imageLink: assets/easy-life.jpg
+
+
