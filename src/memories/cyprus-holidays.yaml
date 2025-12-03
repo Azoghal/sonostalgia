@@ -1,8 +1,8 @@
-outputTitle: cyprus-holiday
-shortTitle:
-title:
+outputTitle: cyprus-holidays
+shortTitle: Holidays in Cyprus
+title: Holidays in Cyprus
 subtitle:
-date:
+date: "2007"
 
 songs:
   - name: Stairway to Heaven - Remaster
@@ -22,7 +22,13 @@ songs:
     imageLink: assets/black-dog-remaster.jpg
 
 content: |
-  # Main Content in markdown
+  Listening to Dad's original iPod on holiday in Cyprus. Really heavy. The green overear earbuds. S. being annoyed at me humming tunelessly while I listened. 
+  
+  First time listening to Led Zeppelin. Playing our gameboys, going to the beach, Roman pillars, caves just in-land.
+
+  Playing Chess against the chess bot on Dad's laptop. Losing to the chimpanzee.
+
+  Other songs I remember listening to on the iPod.
 
 otherSongs:
   - name: Bitch

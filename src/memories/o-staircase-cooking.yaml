@@ -1,8 +1,8 @@
 outputTitle: o-staircase-cooking
-shortTitle:
-title:
+shortTitle: Cooking in O
+title: Cooking in O Staircase
 subtitle:
-date:
+date: 2020-2021
 
 songs:
   - name: Vivir Mi Vida
@@ -14,7 +14,9 @@ songs:
     imageLink: assets/vivir-mi-vida.jpg
 
 content: |
-  # Main Content in markdown
+  *Vivir Mi Vida* - Cooking staircase meals across all three Gyps. George's record player. David in charge of chopping. Some dreadfully spicy tofu dish. Curries from the dishoom book for the first time. "Second Dinner" after trough.
+
+  Listening to *Ms. Jackson* while cooking ragu in our little gyp. Lots of Birra Moretti. 
 
 otherSongs:
   - name: Ms. Jackson

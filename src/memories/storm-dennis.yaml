@@ -1,8 +1,8 @@
 outputTitle: storm-dennis
-shortTitle:
-title:
+shortTitle: Storm Dennis
+title: Storm Dennis and Michaelmas in R
 subtitle:
-date:
+date: "2019"
 
 songs:
   - name: Troubleman
@@ -22,7 +22,9 @@ songs:
     imageLink: assets/kill-your-heroes.jpg
 
 content: |
-  # Main Content in markdown
+  First term. Spending lots of time with A. Storm Dennis came mid term, kept us all inside for a while. Dark Souls, formals.
+
+  Rowing in NM1 and falling asleep in FoC lectures. R staircase tequila & daffodils.
 
 otherSongs:
   - name: Adderall

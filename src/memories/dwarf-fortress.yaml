@@ -1,8 +1,8 @@
 outputTitle: dwarf-fortress
-shortTitle:
-title:
+shortTitle: Dwarf Fortress
+title: Dwarf Fortress
 subtitle:
-date:
+date:  2020-2021
 
 songs:
   - name: Drag Me
@@ -10,7 +10,7 @@ songs:
     artists: 
       - name: Tiny Little Houses
         link: https://open.spotify.com/artist/2DzfwBlRGSLXCXgAKN6EFv
-    relevantDate:
+    relevantDate: July 2020
     imageLink: assets/drag-me.jpg
 
   - name: Vicious Circle
@@ -18,7 +18,7 @@ songs:
     artists: 
       - name: FUCK ART, LET'S DANCE!
         link: https://open.spotify.com/artist/3IkL1ld3owCvDr8939dp0t
-    relevantDate:
+    relevantDate: August 2020
     imageLink: assets/vicious-circle.jpg
 
   - name: X21
@@ -26,7 +26,7 @@ songs:
     artists: 
       - name: The Wholls
         link: https://open.spotify.com/artist/1u3p7gbSruazLLj9ibDQ6X
-    relevantDate:
+    relevantDate: August 2020
     imageLink: assets/x21.jpg
 
   - name: The Only Boy Racer Left On The Island
@@ -34,7 +34,7 @@ songs:
     artists: 
       - name: The Howl & The Hum
         link: https://open.spotify.com/artist/3EQ310YOzcS1pJqiaoDs32
-    relevantDate:
+    relevantDate: October 2020
     imageLink: assets/the-only-boy-racer-left-on-the-island.jpg
 
   - name: Hostages
@@ -42,7 +42,7 @@ songs:
     artists: 
       - name: The Howl & The Hum
         link: https://open.spotify.com/artist/3EQ310YOzcS1pJqiaoDs32
-    relevantDate:
+    relevantDate: October 2020
     imageLink: assets/hostages.jpg
 
   - name: Universe Next Door
@@ -50,7 +50,7 @@ songs:
     artists: 
       - name: Gran Noir
         link: https://open.spotify.com/artist/1q1XeJKpKwJWXtGoI6lLM4
-    relevantDate:
+    relevantDate: October 2020
     imageLink: assets/universe-next-door.jpg
 
   - name: What's Going On
@@ -58,7 +58,7 @@ songs:
     artists: 
       - name: Marvin Gaye
         link: https://open.spotify.com/artist/3koiLjNrgRTNbOwViDipeA
-    relevantDate:
+    relevantDate: December 2021
     imageLink: assets/whats-going-on.jpg
 
   - name: Funky Nation
@@ -66,11 +66,13 @@ songs:
     artists: 
       - name: Marvin Gaye
         link: https://open.spotify.com/artist/3koiLjNrgRTNbOwViDipeA
-    relevantDate:
+    relevantDate: December 2021
     imageLink: assets/funky-nation.jpg
 
 content: |
-  # Main Content in markdown
+  Learning to play dwarf fortress. Kruggsmash, chaotic Werezebras, sharing the stories with A.
+  
+  *What's Going On* - superbly Christmas vibes now, cosy time at home with no pressure.
 
 otherSongs:
   - name: Senza un perché
@@ -78,7 +80,7 @@ otherSongs:
     artists: 
       - name: Nada
         link: https://open.spotify.com/artist/37x1MqNXlCtuLLYSXYX7jA
-    relevantDate:
+    relevantDate: July 2020
     imageLink: assets/senza-un-perché.jpg
 
   - name: Easy Life
@@ -86,7 +88,7 @@ otherSongs:
     artists: 
       - name: Press to MECO
         link: https://open.spotify.com/artist/1uLjfn78AsMWafGWBuVT8q
-    relevantDate:
+    relevantDate: August 2020
     imageLink: assets/easy-life.jpg
 
 

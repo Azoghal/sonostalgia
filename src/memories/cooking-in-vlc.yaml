@@ -1,8 +1,8 @@
 outputTitle: cooking-in-vlc
-shortTitle:
-title:
+shortTitle: Cooking in VLC
+title: Cooking in Valencia
 subtitle:
-date:
+date: "2020"
 
 songs:
   - name: Senza un perché
@@ -10,11 +10,13 @@ songs:
     artists: 
       - name: Nada
         link: https://open.spotify.com/artist/37x1MqNXlCtuLLYSXYX7jA
-    relevantDate:
+    relevantDate: July 2020
     imageLink: assets/senza-un-perché.jpg
 
 content: |
-  # Main Content in markdown
+  *Senza un perché* - Cooking and dancing in the kitchen in VLC with A.
+
+  *Cute Without The 'E'* - Waiting in the very empty airports in between COVID lockdowns. Before they got around to having the brexit gates in Valencia...
 
 otherSongs:
   - name: Cute Without The 'E' (Cut From The Team)
@@ -22,7 +24,7 @@ otherSongs:
     artists: 
       - name: Taking Back Sunday
         link: https://open.spotify.com/artist/24XtlMhEMNdi822vi0MhY1
-    relevantDate:
+    relevantDate: Jul 2026
     imageLink: assets/cute-without-the-e-cut-from-the-team.jpg
 
 

@@ -1,8 +1,8 @@
 outputTitle: brackeys-game-jam-2020
-shortTitle:
-title:
+shortTitle: Game Jam 2020
+title: Working on the Brackeys Game Jam 2020.2
 subtitle:
-date:
+date: 2020
 
 songs:
   - name: The Middle
@@ -10,11 +10,11 @@ songs:
     artists: 
       - name: Cog
         link: https://open.spotify.com/artist/6gD6Pm7jo3mmKgDtyMruA6
-    relevantDate:
+    relevantDate: August 2020
     imageLink: assets/the-middle.jpg
 
 content: |
-  # Main Content in markdown
+  Working on a submission for the Brackeys game jam. Spending too much time working on art, like usual. The game being broken when I uploaded the web version, for some reason. Fixing it up and getting A. to play it.
 
 otherSongs:
   - name: Wake The Dogs
@@ -22,7 +22,7 @@ otherSongs:
     artists: 
       - name: Donots
         link: https://open.spotify.com/artist/2gRgzV2ooQwweEr4s7lwsg
-    relevantDate:
+    relevantDate: August 2020
     imageLink: assets/wake-the-dogs.jpg
 
 
