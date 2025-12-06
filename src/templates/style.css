@@ -238,6 +238,7 @@ body {
     padding: 20px;
     transition: all 0.3s;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .memory-card:hover {
@@ -275,6 +276,37 @@ body {
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+/* Memory card song cover preview */
+.memory-card-song-covers {
+    display: flex;
+    margin: 15px 0;
+    height: 60px;
+    position: relative;
+}
+
+.memory-card-song-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, margin-left 0.3s ease;
+    position: relative;
+}
+
+.memory-card-song-cover:not(:first-child) {
+    margin-left: -30px; 
+}
+
+.memory-card-song-covers:hover .memory-card-song-cover:not(:first-child) {
+    margin-left: 5px;
+}
+
+.memory-card-song-covers:hover .memory-card-song-cover{
+    transform: translateY(-2px);
 }
 
 /* Year Sections */

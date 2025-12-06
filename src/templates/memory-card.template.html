@@ -4,7 +4,14 @@
         <h3 class="memory-card-title">{{.Title}}</h3>
         <time class="memory-card-date">{{.Date}}</time>
         {{if .Subtitle}}<p class="memory-card-excerpt">{{.Subtitle}}</p>{{end}}
+        {{if .Songs -}}
         <div class="memory-card-songs">♪ {{ len .Songs }} {{if eq (len .Songs) 1}}Song{{else}}Songs{{end}}</div>
+        <div class="memory-card-song-covers">
+            {{ range $song := .Songs}}
+            <img src="{{$song.ImageLink}}"  alt="{{$song.Name}}" class="memory-card-song-cover">
+            {{end}}
+        </div>
+        {{- end -}}
     </div>
 </a>
 {{end}}
