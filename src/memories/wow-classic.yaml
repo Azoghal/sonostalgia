@@ -1,0 +1,60 @@
+outputTitle: wow-classic
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: I Get Like This
+    link: https://open.spotify.com/track/0optHnDvpfxtft4D0tTetQ
+    artists: 
+      - name: The Hard Aches
+        link: https://open.spotify.com/artist/5GqFd0P1Vx3kbKyFxxTkqq
+    relevantDate:
+    imageLink: assets/i-get-like-this.jpg
+
+  - name: TV Dream
+    link: https://open.spotify.com/track/2ibtAT6ATGfSJIRqS7NSmK
+    artists: 
+      - name: Larkins
+        link: https://open.spotify.com/artist/6cCfC12LHtD5XIc1rLsm8Y
+    relevantDate:
+    imageLink: assets/tv-dream.jpg
+
+  - name: Jesus Stole My Girlfriend
+    link: https://open.spotify.com/track/7IA4jOxw9FNHdLEtVzDd0D
+    artists: 
+      - name: Violent Soho
+        link: https://open.spotify.com/artist/2N2EFVDEbp2JB8ulEUVIxp
+    relevantDate:
+    imageLink: assets/jesus-stole-my-girlfriend.jpg
+
+  - name: Darkside
+    link: https://open.spotify.com/track/39n1y2JqVOPIdfUeLqzgfl
+    artists: 
+      - name: blink-182
+        link: https://open.spotify.com/artist/6FBDaR13swtiWwGhX1WQsP
+    relevantDate:
+    imageLink: assets/darkside.jpg
+
+  - name: Say It Ain't So - Original Mix
+    link: https://open.spotify.com/track/6VoIBz0VhCyz7OdEoRYDiA
+    artists: 
+      - name: Weezer
+        link: https://open.spotify.com/artist/3jOstUTkEu2JkjvRdBA5Gu
+    relevantDate:
+    imageLink: assets/say-it-aint-so-original-mix.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: No Heart To Speak Of
+    link: https://open.spotify.com/track/6gc4LhCNFbbs6wQDgafu7b
+    artists: 
+      - name: blink-182
+        link: https://open.spotify.com/artist/6FBDaR13swtiWwGhX1WQsP
+    relevantDate:
+    imageLink: assets/no-heart-to-speak-of.jpg
+
+

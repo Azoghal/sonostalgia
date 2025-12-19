@@ -1,0 +1,28 @@
+outputTitle: witcher-and-gwent
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Stay
+    link: https://open.spotify.com/track/6Yx7XlialfM3sY4zeSORoA
+    artists: 
+      - name: RIZ LA VIE
+        link: https://open.spotify.com/artist/0QkgnHpxSCOYdTnhUR9S5k
+    relevantDate:
+    imageLink: assets/stay.jpg
+
+  - name: The Sun Comes Up
+    link: https://open.spotify.com/track/4BMvHFaQSE9WvzJyr8v0wx
+    artists: 
+      - name: Mako Road
+        link: https://open.spotify.com/artist/5dbCgsqzVweFpd1yYHv3Bz
+    relevantDate:
+    imageLink: assets/the-sun-comes-up.jpg
+
+content: |
+  # Main Content in markdown
+
+
+

@@ -1,0 +1,32 @@
+outputTitle: halo-reach
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Grenade
+    link: https://open.spotify.com/track/4lLtanYk6tkMvooU0tWzG8
+    artists: 
+      - name: Bruno Mars
+        link: https://open.spotify.com/artist/0du5cEVh5yTK9QJze8zA0C
+    relevantDate:
+    imageLink: assets/grenade.jpg
+
+  - name: Party Rock Anthem
+    link: https://open.spotify.com/track/1ve0SgTZkv3wdggJLqtBYU
+    artists: 
+      - name: LMFAO
+        link: https://open.spotify.com/artist/3sgFRtyBnxXD5ESfmbK4dl
+      - name: Lauren Bennett
+        link: https://open.spotify.com/artist/2jLE4BoXHriQ96JagEtiDP
+      - name: GoonRock
+        link: https://open.spotify.com/artist/53sIBaVjXQhfH89Vu6nEGh
+    relevantDate:
+    imageLink: assets/party-rock-anthem.jpg
+
+content: |
+  # Main Content in markdown
+
+
+

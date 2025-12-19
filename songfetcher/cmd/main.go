@@ -112,6 +112,7 @@ func main() {
 		song, err := lookupSongById(ctx, client, songId)
 		if err != nil {
 			log.Printf("FAILED to lookup song: %s\n", err)
+			continue
 		}
 
 		otherSongs = append(otherSongs, *song)
@@ -151,7 +152,7 @@ func lookupSongById(ctx context.Context, client *spotify.Client, id string) (*so
 		})
 	}
 
-	bestImageAssetUrl := fetchBestImage(album.Images, "src/assets", makeImageName(track.Name))
+	bestImageAssetUrl := fetchBestImage(album.Images, "songfetcher/output/assets", makeImageName(track.Name))
 
 	// RelevantDate left empty as it needs user input
 	song := &sonostalgia.Song{

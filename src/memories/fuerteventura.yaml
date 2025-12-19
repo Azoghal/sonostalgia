@@ -1,0 +1,48 @@
+outputTitle: fuerteventura
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Get Lucky (Radio Edit) [feat. Pharrell Williams and Nile Rodgers]
+    link: https://open.spotify.com/track/2Foc5Q5nqNiosCNqttzHof
+    artists: 
+      - name: Daft Punk
+        link: https://open.spotify.com/artist/4tZwfgrHOc3mvqYlEYSvVi
+      - name: Pharrell Williams
+        link: https://open.spotify.com/artist/2RdwBSPQiwcmiDo9kixcl8
+      - name: Nile Rodgers
+        link: https://open.spotify.com/artist/3yDIp0kaq9EFKe07X1X2rz
+    relevantDate:
+    imageLink: assets/get-lucky-radio-edit-feat-pharrell-williams-and-nile-rodgers.jpg
+
+  - name: I Remember
+    link: https://open.spotify.com/track/5kc94sZMpuzSZdbfiCr0gh
+    artists: 
+      - name: Tristam
+        link: https://open.spotify.com/artist/28Ky95tmlHktB96DBUoB0g
+    relevantDate:
+    imageLink: assets/i-remember.jpg
+
+  - name: Sick Love
+    link: https://open.spotify.com/track/6GsP3uMCd0Dn5T37C93waZ
+    artists: 
+      - name: Red Hot Chili Peppers
+        link: https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5
+    relevantDate:
+    imageLink: assets/sick-love.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Movies
+    link: https://open.spotify.com/track/3D8jabgtmZtDibyb6gqZOT
+    artists: 
+      - name: Circa Waves
+        link: https://open.spotify.com/artist/6hl5k4gLl1p3sjhHcb57t2
+    relevantDate:
+    imageLink: assets/movies.jpg
+
+

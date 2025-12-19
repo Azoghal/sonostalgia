@@ -1,0 +1,52 @@
+outputTitle: cricket-rugby-drives
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Money For Nothing - Remastered 1996
+    link: https://open.spotify.com/track/4nFNJmjfgBF7jwv2oBC45b
+    artists: 
+      - name: Dire Straits
+        link: https://open.spotify.com/artist/0WwSkZ7LtFUFjGjMZBMt6T
+    relevantDate:
+    imageLink: assets/money-for-nothing-remastered-1996.jpg
+
+  - name: Wicked Game
+    link: https://open.spotify.com/track/7w5AOd6HrDIHewHfpABEss
+    artists: 
+      - name: Chris Isaak
+        link: https://open.spotify.com/artist/7290H8m1Dwt8G7jm1y9CQx
+    relevantDate:
+    imageLink: assets/wicked-game.jpg
+
+  - name: Diamonds on the Soles of Her Shoes
+    link: https://open.spotify.com/track/71GvlH0VdeClloLIkHrAVu
+    artists: 
+      - name: Paul Simon
+        link: https://open.spotify.com/artist/2CvCyf1gEVhI0mX6aFXmVI
+    relevantDate:
+    imageLink: assets/diamonds-on-the-soles-of-her-shoes.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Walk Of Life - Remastered 1996
+    link: https://open.spotify.com/track/5Hk4Mpex0s2ndUpDQ5v2rU
+    artists: 
+      - name: Dire Straits
+        link: https://open.spotify.com/artist/0WwSkZ7LtFUFjGjMZBMt6T
+    relevantDate:
+    imageLink: assets/walk-of-life-remastered-1996.jpg
+
+  - name: Sultans Of Swing
+    link: https://open.spotify.com/track/37Tmv4NnfQeb0ZgUC4fOJj
+    artists: 
+      - name: Dire Straits
+        link: https://open.spotify.com/artist/0WwSkZ7LtFUFjGjMZBMt6T
+    relevantDate:
+    imageLink: assets/sultans-of-swing.jpg
+
+

@@ -1,0 +1,20 @@
+outputTitle: lua-games
+shortTitle:
+title:
+subtitle:
+date:
+
+songs:
+  - name: Encore
+    link: https://open.spotify.com/track/4VGvosVIeFMCUwHibq7a9Z
+    artists: 
+      - name: Red Hot Chili Peppers
+        link: https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5
+    relevantDate:
+    imageLink: assets/encore.jpg
+
+content: |
+  # Main Content in markdown
+
+
+
