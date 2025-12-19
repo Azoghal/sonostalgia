@@ -1,0 +1,54 @@
+outputTitle: driving-to-school
+shortTitle: 
+title: Driving to School
+subtitle: Driving to School
+date: 2017-2019
+
+songs:
+  - name: Ribcage
+    link: https://open.spotify.com/track/2cICtf9o9r11iyg1u70JXG
+    artists: 
+      - name: Keep Up
+        link: https://open.spotify.com/artist/54lK58tyE9qC2uOTTflErf
+    relevantDate:
+    imageLink: assets/ribcage.jpg
+
+  - name: Threat Level Midnight
+    link: https://open.spotify.com/track/4e9GhjdIrJLR9C8ydXQ9hn
+    artists: 
+      - name: Neck Deep
+        link: https://open.spotify.com/artist/2TM0qnbJH4QPhGMCdPt7fH
+    relevantDate:
+    imageLink: assets/threat-level-midnight.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Spirit Bird
+    link: https://open.spotify.com/track/7mptueK99zxqmgIdT3SaWF
+    artists: 
+      - name: Xavier Rudd
+        link: https://open.spotify.com/artist/5lbM4g6bhxjNX7R5QHP2nD
+    relevantDate:
+    imageLink: assets/spirit-bird.jpg
+
+  - name: little light
+    link: https://open.spotify.com/track/5ofPVNOR2T8cHMhLGUTrbN
+    artists: 
+      - name: Lewis Watson
+        link: https://open.spotify.com/artist/40ELTAg7Kg6vbWnlyx2n9R
+    relevantDate:
+    imageLink: assets/little-light.jpg
+
+  - name: Old No. 7 - Feat. G-Eazy
+    link: https://open.spotify.com/track/0p2Eezm7M4ORXpczTTGeqz
+    artists: 
+      - name: Jez Dior
+        link: https://open.spotify.com/artist/2tmWjaROlvLpahIZcvPLwi
+      - name: G-Eazy
+        link: https://open.spotify.com/artist/02kJSzxNuaWGqwubyUba0Z
+    relevantDate:
+    imageLink: assets/old-no-7-feat-geazy.jpg
+
+

@@ -1,0 +1,28 @@
+outputTitle: south-africa
+shortTitle:
+title: Kruger Park and Garden Route
+subtitle:
+date: 2018
+
+songs:
+  - name: Tongue of Bombie
+    link: https://open.spotify.com/track/4w0c7VwtP7AbrYbQtYEP0S
+    artists: 
+      - name: Bwani Junction
+        link: https://open.spotify.com/artist/0hLqA2FplvSZy1zw73MM0d
+    relevantDate:
+    imageLink: assets/tongue-of-bombie.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Lost
+    link: https://open.spotify.com/track/3GZD6HmiNUhxXYf8Gch723
+    artists: 
+      - name: Frank Ocean
+        link: https://open.spotify.com/artist/2h93pZq0e7k5yf4dywlkpM
+    relevantDate:
+    imageLink: assets/lost.jpg
+
+

@@ -1,0 +1,52 @@
+outputTitle: star-wars-xmas
+shortTitle:
+title: Star Wars hype and Lego at Christmas
+subtitle:
+date: 2015
+
+songs:
+  - name: May the Light
+    link: https://open.spotify.com/track/3y9R7Io8wQvpy4ImHXcN8A
+    artists: 
+      - name: Longfellow
+        link: https://open.spotify.com/artist/6sn1KjI14lIWWSd3IJm5bU
+    relevantDate:
+    imageLink: assets/may-the-light.jpg
+
+  - name: Wolf Cry
+    link: https://open.spotify.com/track/5VRvX09sreXEnwmMnOP5vJ
+    artists: 
+      - name: Longfellow
+        link: https://open.spotify.com/artist/6sn1KjI14lIWWSd3IJm5bU
+    relevantDate:
+    imageLink: assets/wolf-cry.jpg
+
+  - name: Technicolour Beat
+    link: https://open.spotify.com/track/5pLpkaIRobcvPnUmclNv6o
+    artists: 
+      - name: Oh Wonder
+        link: https://open.spotify.com/artist/5cIc3SBFuBLVxJz58W2tU9
+    relevantDate:
+    imageLink: assets/technicolour-beat.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Choose
+    link: https://open.spotify.com/track/0H0WAtig2zAsFwsmHCCqTl
+    artists: 
+      - name: Longfellow
+        link: https://open.spotify.com/artist/6sn1KjI14lIWWSd3IJm5bU
+    relevantDate:
+    imageLink: assets/choose.jpg
+
+  - name: All We Do
+    link: https://open.spotify.com/track/6Vigp41BietH0WoFZ52JI5
+    artists: 
+      - name: Oh Wonder
+        link: https://open.spotify.com/artist/5cIc3SBFuBLVxJz58W2tU9
+    relevantDate:
+    imageLink: assets/all-we-do.jpg
+
+

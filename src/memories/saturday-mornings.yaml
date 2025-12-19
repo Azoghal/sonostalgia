@@ -1,0 +1,20 @@
+outputTitle: saturday-mornings
+shortTitle:
+title: Saturday Mornings at Home
+subtitle:
+date: 2019-2022
+
+songs:
+  - name: Watermelon Man - Remastered 2007
+    link: https://open.spotify.com/track/38xcUjiTP1ivfb7ObwjyGA
+    artists: 
+      - name: Herbie Hancock
+        link: https://open.spotify.com/artist/2ZvrvbQNrHKwjT7qfGFFUW
+    relevantDate:
+    imageLink: assets/watermelon-man-remastered-2007.jpg
+
+content: |
+  # Main Content in markdown
+
+
+

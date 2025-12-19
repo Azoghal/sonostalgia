@@ -1,0 +1,28 @@
+outputTitle: wow-legion
+shortTitle:
+title: Playing WoW Legion
+subtitle:
+date: 2016
+
+songs:
+  - name: Kathleen
+    link: https://open.spotify.com/track/1MHYAqWWdDRePmnqORynrq
+    artists: 
+      - name: Catfish and the Bottlemen
+        link: https://open.spotify.com/artist/2xaAOVImG2O6lURwqperlD
+    relevantDate:
+    imageLink: assets/kathleen.jpg
+
+  - name: Fallout
+    link: https://open.spotify.com/track/2PAeLLcnw42x5ZszOfFz50
+    artists: 
+      - name: Catfish and the Bottlemen
+        link: https://open.spotify.com/artist/2xaAOVImG2O6lURwqperlD
+    relevantDate:
+    imageLink: assets/fallout.jpg
+
+content: |
+  # Main Content in markdown
+
+
+

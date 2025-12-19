@@ -1,0 +1,28 @@
+outputTitle: pubg-miramar
+shortTitle:
+title: Playing PUBG - Miramar 
+subtitle:
+date: 2018
+
+songs:
+  - name: Roots Too Deep
+    link: https://open.spotify.com/track/5ZkMwQpVUaTbik2b4BfMff
+    artists: 
+      - name: Bwani Junction
+        link: https://open.spotify.com/artist/0hLqA2FplvSZy1zw73MM0d
+    relevantDate:
+    imageLink: assets/roots-too-deep.jpg
+
+  - name: She Ain't Sayin' No
+    link: https://open.spotify.com/track/1gx0JWCSkrhTNjFiVkazQR
+    artists: 
+      - name: Bwani Junction
+        link: https://open.spotify.com/artist/0hLqA2FplvSZy1zw73MM0d
+    relevantDate:
+    imageLink: assets/she-aint-sayin-no.jpg
+
+content: |
+  # Main Content in markdown
+
+
+

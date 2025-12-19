@@ -1,0 +1,60 @@
+outputTitle: elite-dangerous
+shortTitle:
+title: Elite Dangerous
+subtitle: Playing Elite Dangerous
+date: 2017
+
+songs:
+  - name: Lately
+    link: https://open.spotify.com/track/2ifH3TgT4WG4SFqSz73JoA
+    artists: 
+      - name: Shapes & Colors
+        link: https://open.spotify.com/artist/46PwFQNpXaGyxKWzqkWlFL
+    relevantDate:
+    imageLink: assets/lately.jpg
+
+  - name: Home
+    link: https://open.spotify.com/track/10ViidwjGLCfVtGPfdcszR
+    artists: 
+      - name: Edward Sharpe & The Magnetic Zeros
+        link: https://open.spotify.com/artist/7giUHu5pv6YTZgSkxxCcgh
+    relevantDate:
+    imageLink: assets/home.jpg
+
+  - name: Waiting For You
+    link: https://open.spotify.com/track/0YsgWDcnhQEXChiMUtah1d
+    artists: 
+      - name: Grizfolk
+        link: https://open.spotify.com/artist/6Xa4nbrSTfbioA4lLShbjh
+    relevantDate:
+    imageLink: assets/waiting-for-you.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Stop Me When You've Had Enough
+    link: https://open.spotify.com/track/3RMdCtgwka2jv4TvDf1kb4
+    artists: 
+      - name: Nural
+        link: https://open.spotify.com/artist/5tWNov1u92Zj8nXZbxD7FD
+    relevantDate:
+    imageLink: assets/stop-me-when-youve-had-enough.jpg
+
+  - name: DRUGS
+    link: https://open.spotify.com/track/59TNbwq86J3woW6ShKAVBh
+    artists: 
+      - name: DREAMERS
+        link: https://open.spotify.com/artist/1FgsVeOhRYuSw2ghkIXV0A
+    relevantDate:
+    imageLink: assets/drugs.jpg
+
+  - name: Don't Cry, 2020
+    link: https://open.spotify.com/track/4mSP3tI4z6vUbFdqaSlSPc
+    artists: 
+      - name: COIN
+        link: https://open.spotify.com/artist/0ZxZlO7oWCSYMXhehpyMvE
+    relevantDate:
+    imageLink: assets/dont-cry-2020.jpg
+
+

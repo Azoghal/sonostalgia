@@ -1,0 +1,44 @@
+outputTitle: wow-bfa-sanhok-tested
+shortTitle:
+title: Playing WoW BfA, dropping Sanhok with Lucas, Tested
+subtitle:
+date: 2018
+
+songs:
+  - name: Fire That Burns
+    link: https://open.spotify.com/track/5mSA0CHazgUoiU3Z4Q3T8G
+    artists: 
+      - name: Circa Waves
+        link: https://open.spotify.com/artist/6hl5k4gLl1p3sjhHcb57t2
+    relevantDate:
+    imageLink: assets/fire-that-burns.jpg
+
+  - name: Midnight City
+    link: https://open.spotify.com/track/6GyFP1nfCDB8lbD2bG0Hq9
+    artists: 
+      - name: M83
+        link: https://open.spotify.com/artist/63MQldklfxkjYDoUE4Tppz
+    relevantDate:
+    imageLink: assets/midnight-city.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Wake Up
+    link: https://open.spotify.com/track/6C2fNRYVIeua8na3o86zdJ
+    artists: 
+      - name: Circa Waves
+        link: https://open.spotify.com/artist/6hl5k4gLl1p3sjhHcb57t2
+    relevantDate:
+    imageLink: assets/wake-up.jpg
+
+  - name: Wait
+    link: https://open.spotify.com/track/01Q3OyB05mLgH01fpdAMPP
+    artists: 
+      - name: M83
+        link: https://open.spotify.com/artist/63MQldklfxkjYDoUE4Tppz
+    relevantDate:
+    imageLink: assets/wait.jpg
+
+

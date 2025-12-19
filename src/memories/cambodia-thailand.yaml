@@ -1,0 +1,80 @@
+outputTitle: cambodia-thailand
+shortTitle:
+title: Cambodia and Thailand
+subtitle: Holiday to Cambodia and Thailand with Mum & Dad
+date: 2017
+
+songs:
+  - name: I'd Love You to Want Me
+    link: https://open.spotify.com/track/71CXzHYYOyNqgtVFpNdeCS
+    artists: 
+      - name: Lobo
+        link: https://open.spotify.com/artist/1sldhz8tzC100cRAdfnMht
+    relevantDate:
+    imageLink: assets/id-love-you-to-want-me.jpg
+
+  - name: One More Light
+    link: https://open.spotify.com/track/3xXBsjrbG1xQIm1xv1cKOt
+    artists: 
+      - name: Linkin Park
+        link: https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz
+    relevantDate:
+    imageLink: assets/one-more-light.jpg
+
+  - name: Time to Dance
+    link: https://open.spotify.com/track/1Cqhp6H0BlD8j2770dHGEc
+    artists: 
+      - name: Panic! At The Disco
+        link: https://open.spotify.com/artist/20JZFwl6HVl6yg8a4H3ZqK
+    relevantDate:
+    imageLink: assets/time-to-dance.jpg
+
+  - name: Vegas Lights
+    link: https://open.spotify.com/track/0zewUY3RSh8yaV7q66Okem
+    artists: 
+      - name: Panic! At The Disco
+        link: https://open.spotify.com/artist/20JZFwl6HVl6yg8a4H3ZqK
+    relevantDate:
+    imageLink: assets/vegas-lights.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Good Goodbye (feat. Pusha T and Stormzy)
+    link: https://open.spotify.com/track/650OeHTLxZAQmb4aEbGmaA
+    artists: 
+      - name: Linkin Park
+        link: https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz
+      - name: Pusha T
+        link: https://open.spotify.com/artist/0ONHkAv9pCAFxb0zJwDNTy
+      - name: Stormzy
+        link: https://open.spotify.com/artist/2SrSdSvpminqmStGELCSNd
+    relevantDate:
+    imageLink: assets/good-goodbye-feat-pusha-t-and-stormzy.jpg
+
+  - name: Intermission
+    link: https://open.spotify.com/track/4HrU7KlBRwC5IWOX8EYF1k
+    artists: 
+      - name: Panic! At The Disco
+        link: https://open.spotify.com/artist/20JZFwl6HVl6yg8a4H3ZqK
+    relevantDate:
+    imageLink: assets/intermission.jpg
+
+  - name: Believer
+    link: https://open.spotify.com/track/0CcQNd8CINkwQfe1RDtGV6
+    artists: 
+      - name: Imagine Dragons
+        link: https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q
+    relevantDate:
+    imageLink: assets/believer.jpg
+
+  - name: The Ballad of Mona Lisa
+    link: https://open.spotify.com/track/1YlzLggclVelfQD1R0dTAy
+    artists: 
+      - name: Panic! At The Disco
+        link: https://open.spotify.com/artist/20JZFwl6HVl6yg8a4H3ZqK
+    relevantDate:
+    imageLink: assets/the-ballad-of-mona-lisa.jpg
+
+

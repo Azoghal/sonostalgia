@@ -1,0 +1,28 @@
+outputTitle: totton-cricket-drives
+shortTitle:
+title: Driving to T&ECC Matches
+subtitle: 
+date: 2018
+
+songs:
+  - name: Never There
+    link: https://open.spotify.com/track/3ujzd7pcdAhILCnS3oGbaU
+    artists: 
+      - name: Sum 41
+        link: https://open.spotify.com/artist/0qT79UgT5tY4yudH9VfsdT
+    relevantDate:
+    imageLink: assets/never-there.jpg
+
+content: |
+  # Main Content in markdown
+
+otherSongs:
+  - name: Catching Fire
+    link: https://open.spotify.com/track/3EOWZdSRXtEs82oZTCNTXJ
+    artists: 
+      - name: Sum 41
+        link: https://open.spotify.com/artist/0qT79UgT5tY4yudH9VfsdT
+    relevantDate:
+    imageLink: assets/catching-fire.jpg
+
+
