@@ -17,6 +17,14 @@ songs:
     relevantDate:
     imageLink: assets/get-lucky-radio-edit-feat-pharrell-williams-and-nile-rodgers.jpg
 
+  - name: Get Lucky (Cover)
+    link: https://youtu.be/T5Cp55MvX54?si=OmHuuSGPEMONPHLj
+    artists: 
+      - name: Daughter
+        link: https://open.spotify.com/artist/46CitWgnWrvF9t70C2p1Me
+    relevantDate:
+    imageLink: assets/daughter.jpg
+
   - name: I Remember
     link: https://open.spotify.com/track/5kc94sZMpuzSZdbfiCr0gh
     artists: 
