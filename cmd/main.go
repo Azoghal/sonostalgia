@@ -27,6 +27,13 @@ func main() {
 				Value: value,
 			}
 		},
+		"seeallcard": func() sonostalgia.Memory {
+			return sonostalgia.Memory{
+				OutputTitle: "memories",
+				Title:       "More Memories",
+				Subtitle:    "Click here to see all memories...",
+			}
+		},
 	}
 
 	htmlTemplates, err := template.New("").Funcs(funcMap).ParseGlob("src/templates/*")

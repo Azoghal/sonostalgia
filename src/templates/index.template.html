@@ -21,16 +21,15 @@
                 {{template "statCard" statcard "Years" .YearsWithEntries}}
             </div>
 
-            {{ if .RecentMemories }}
             <section>
                 <h2 class="section-title">Recent Memories</h2>
                 <div class="memory-grid">
                     {{range $memory := .RecentMemories}}
                         {{template "memoryCard" $memory}}
                     {{end}}
+                    {{template "memoryCard" seeallcard}}
                 </div>
             </section>
-            {{end}}
         </main>
 
         {{template "navPanel" "Home"}}
