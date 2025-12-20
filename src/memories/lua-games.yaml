@@ -14,7 +14,4 @@ songs:
     imageLink: assets/encore.jpg
 
 content: |
-  # Main Content in markdown
-
-
-
+  Making my first couple games using Lua and Love2D. Domino tower defense, Snek.
