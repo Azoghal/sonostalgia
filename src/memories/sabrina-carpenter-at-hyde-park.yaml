@@ -1,0 +1,36 @@
+outputTitle: sabrina-carpenter-at-hyde-park
+shortTitle: Sabrina Carpenter, Hyde Park
+title: Sabrina Carpenter at Hyde Park
+subtitle: Going to Hyde Park to see Sabrina Carpenter and others
+date: "2025"
+songs:
+    - name: Sexy to Someone
+      link: https://open.spotify.com/track/2Nq4SFbvYYZa8AF7lD7CWU
+      artists:
+        - name: Clairo
+          link: https://open.spotify.com/artist/3l0CmX0FuQjFxr8SK7Vqag
+      relevantDate: ""
+      imageLink: assets/sexy-to-someone.jpg
+    - name: Bed Chem
+      link: https://open.spotify.com/track/1UHS8Rf6h5Ar3CDWRd3wjF
+      artists:
+        - name: Sabrina Carpenter
+          link: https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B
+      relevantDate: ""
+      imageLink: assets/bed-chem.jpg
+    - name: Juno
+      link: https://open.spotify.com/track/21B4gaTWnTkuSh77iWEXdS
+      artists:
+        - name: Sabrina Carpenter
+          link: https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B
+      relevantDate: ""
+      imageLink: assets/juno.jpg
+content: Noodle Inn to fuel up beforehand. Little snack box on the parched ground. Speedy getaway during Espresso, definitely the right call.
+otherSongs:
+    - name: Busy Woman
+      link: https://open.spotify.com/track/0b0Dz0Gi86SVdBxYeiQcCP
+      artists:
+        - name: Sabrina Carpenter
+          link: https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B
+      relevantDate: ""
+      imageLink: assets/busy-woman.jpg
