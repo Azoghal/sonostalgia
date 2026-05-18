@@ -12,9 +12,18 @@
       background: #0f0f0f;
       color: #e0e0e0;
       padding: 2rem;
-      max-width: 760px;
+      max-width: 1260px;
       margin: 0 auto;
     }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .sidebar { min-width: 0; }
+    .main { min-width: 0; }
 
     h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
     .tagline { color: #555; font-size: 0.85rem; margin-bottom: 2rem; }
@@ -251,31 +260,41 @@
     /* Ideas section */
     .ideas-add-row {
       display: flex;
-      gap: 0.6rem;
+      flex-direction: column;
+      gap: 0.5rem;
       margin-bottom: 0.85rem;
     }
-    .ideas-add-row input { flex: 1; }
-    .ideas-add-row input:first-child { flex: 0 0 38%; }
 
     .wip-list { display: flex; flex-direction: column; gap: 0.4rem; }
 
     .wip-entry {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.5rem 0.6rem;
+      gap: 0.5rem;
+      padding: 0.45rem 0.55rem;
       background: #111;
       border: 1px solid #252525;
       border-radius: 5px;
     }
     .wip-info { flex: 1; min-width: 0; }
-    .wip-title { font-size: 0.88rem; font-weight: 500; }
-    .wip-notes {
-      font-size: 0.75rem;
-      color: #555;
-      margin-left: 0.5rem;
+    .wip-title {
+      font-size: 0.84rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
     }
-    .wip-date { font-size: 0.72rem; color: #3a3a3a; margin-left: 0.5rem; }
+    .wip-notes {
+      font-size: 0.71rem;
+      color: #555;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 0.1rem;
+    }
+    .wip-date { display: none; }
     .wip-start {
       background: none;
       border: 1px solid #2a2a2a;
@@ -304,9 +323,9 @@
     .wip-empty { font-size: 0.8rem; color: #3a3a3a; padding: 0.25rem 0; }
 
     /* Load row */
-    .load-row { display: flex; gap: 0.75rem; align-items: center; }
+    .load-row { display: flex; flex-direction: column; gap: 0.5rem; }
     select {
-      flex: 1;
+      width: 100%;
       background: #111;
       border: 1px solid #2a2a2a;
       border-radius: 5px;
@@ -324,81 +343,86 @@
 </head>
 <body>
 
-<h1>Sonostalgia Creator</h1>
-<p class="tagline">Fill in the details, search for songs, save.</p>
+<div class="layout">
 
-<section>
-  <h2>Memory Ideas</h2>
-  <div class="ideas-add-row">
-    <input type="text" id="wip-title" placeholder="Title…" autocomplete="off" />
-    <input type="text" id="wip-notes" placeholder="Notes (optional)" autocomplete="off" />
-    <button class="btn btn-secondary" onclick="addWIP()">Add</button>
-  </div>
-  <div class="wip-list" id="wip-list"></div>
-</section>
+  <aside class="sidebar">
+    <section>
+      <h2>Load memory</h2>
+      <div class="load-row">
+        <select id="load-select">
+          <option value="">Select a memory…</option>
+        </select>
+        <button class="btn btn-secondary" onclick="doLoadMemory()">Load</button>
+      </div>
+    </section>
 
-<section>
-  <h2>Load existing memory</h2>
-  <div class="load-row">
-    <select id="load-select">
-      <option value="">Select a memory…</option>
-    </select>
-    <button class="btn btn-secondary" onclick="doLoadMemory()">Load</button>
-  </div>
-</section>
+    <section>
+      <h2>Ideas</h2>
+      <div class="ideas-add-row">
+        <input type="text" id="wip-title" placeholder="Title…" autocomplete="off" />
+        <input type="text" id="wip-notes" placeholder="Notes (optional)" autocomplete="off" />
+        <button class="btn btn-secondary" onclick="addWIP()">Add</button>
+      </div>
+      <div class="wip-list" id="wip-list"></div>
+    </section>
+  </aside>
 
-<section>
-  <h2>Memory Details</h2>
-  <label>Title</label>
-  <input type="text" id="title" placeholder="Walks around the Pub Loop with Otto" oninput="onTitleInput(this.value)" />
-  <div class="row" style="margin-top:0.9rem">
-    <div>
+  <div class="main">
+    <section>
+      <h2>Memory Details</h2>
+      <label>Title</label>
+      <input type="text" id="title" placeholder="Walks around the Pub Loop with Otto" oninput="onTitleInput(this.value)" />
       <label>Slug</label>
       <input type="text" id="outputTitle" placeholder="walks-with-otto" oninput="slugEdited=true" />
-    </div>
-    <div>
-      <label>Short title</label>
-      <input type="text" id="shortTitle" placeholder="Pub Loop with Otto" />
+      <div class="row" style="margin-top:0.9rem">
+        <div>
+          <label>Short title</label>
+          <input type="text" id="shortTitle" placeholder="Pub Loop with Otto" />
+        </div>
+        <div>
+          <label>Date</label>
+          <input type="text" id="date" placeholder="2016 - 2023" />
+        </div>
+      </div>
+      <label>Subtitle</label>
+      <input type="text" id="subtitle" placeholder="Optional subtitle" />
+    </section>
+
+    <section>
+      <h2>Songs</h2>
+      <div class="song-list" id="songs-list"></div>
+      <div class="search-widget">
+        <input type="text" class="search-input" id="songs-search"
+          placeholder="Search for a song, or paste a Spotify URL…" autocomplete="off" />
+        <div class="search-results hidden" id="songs-results"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Content</h2>
+      <textarea id="content" placeholder="Write your memory here. Markdown is supported."></textarea>
+    </section>
+
+    <section>
+      <h2>Other Songs</h2>
+      <button class="other-songs-toggle" id="other-toggle" onclick="toggleOtherSongs()">▸ Add related songs</button>
+      <div class="collapsible" id="other-songs-body">
+        <div class="song-list" id="other-songs-list"></div>
+        <div class="search-widget">
+          <input type="text" class="search-input" id="other-songs-search"
+            placeholder="Search for a song, or paste a Spotify URL…" autocomplete="off" />
+          <div class="search-results hidden" id="other-songs-results"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="save-row">
+      <button class="btn btn-primary" onclick="saveMemory(false)">Save Memory</button>
+      <button class="btn btn-secondary" onclick="saveMemory(true)">Save + Rebuild Site</button>
+      <span class="status-msg" id="status"></span>
     </div>
   </div>
-  <label>Subtitle</label>
-  <input type="text" id="subtitle" placeholder="Optional subtitle" />
-  <label>Date</label>
-  <input type="text" id="date" placeholder="2016 - 2023" />
-</section>
 
-<section>
-  <h2>Songs</h2>
-  <div class="song-list" id="songs-list"></div>
-  <div class="search-widget">
-    <input type="text" class="search-input" id="songs-search"
-      placeholder="Search for a song, or paste a Spotify URL…" autocomplete="off" />
-    <div class="search-results hidden" id="songs-results"></div>
-  </div>
-</section>
-
-<section>
-  <h2>Content</h2>
-  <textarea id="content" placeholder="Write your memory here. Markdown is supported."></textarea>
-</section>
-
-<section>
-  <h2>Other Songs</h2>
-  <button class="other-songs-toggle" id="other-toggle" onclick="toggleOtherSongs()">▸ Add related songs</button>
-  <div class="collapsible" id="other-songs-body">
-    <div class="song-list" id="other-songs-list"></div>
-    <div class="search-widget">
-      <input type="text" class="search-input" id="other-songs-search"
-        placeholder="Search for a song, or paste a Spotify URL…" autocomplete="off" />
-      <div class="search-results hidden" id="other-songs-results"></div>
-    </div>
-  </div>
-</section>
-
-<div class="save-row">
-  <button class="btn btn-primary" onclick="saveMemory(false)">Save Memory</button>
-  <button class="btn btn-secondary" onclick="saveMemory(true)">Save + Rebuild Site</button>
-  <span class="status-msg" id="status"></span>
 </div>
 
 <script>
