@@ -247,12 +247,105 @@
     .status-msg { font-size: 0.82rem; color: #555; }
     .status-msg.ok { color: #1DB954; }
     .status-msg.err { color: #c0392b; }
+
+    /* Ideas section */
+    .ideas-add-row {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.85rem;
+    }
+    .ideas-add-row input { flex: 1; }
+    .ideas-add-row input:first-child { flex: 0 0 38%; }
+
+    .wip-list { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .wip-entry {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 0.6rem;
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 5px;
+    }
+    .wip-info { flex: 1; min-width: 0; }
+    .wip-title { font-size: 0.88rem; font-weight: 500; }
+    .wip-notes {
+      font-size: 0.75rem;
+      color: #555;
+      margin-left: 0.5rem;
+    }
+    .wip-date { font-size: 0.72rem; color: #3a3a3a; margin-left: 0.5rem; }
+    .wip-start {
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: #888;
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .wip-start:hover { border-color: #1DB954; color: #1DB954; }
+    .wip-delete {
+      background: none;
+      border: none;
+      color: #3a3a3a;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .wip-delete:hover { color: #c0392b; }
+    .wip-empty { font-size: 0.8rem; color: #3a3a3a; padding: 0.25rem 0; }
+
+    /* Load row */
+    .load-row { display: flex; gap: 0.75rem; align-items: center; }
+    select {
+      flex: 1;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 5px;
+      color: #e0e0e0;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    select:focus { border-color: #1DB954; }
+    option { background: #1a1a1a; }
   </style>
 </head>
 <body>
 
 <h1>Sonostalgia Creator</h1>
 <p class="tagline">Fill in the details, search for songs, save.</p>
+
+<section>
+  <h2>Memory Ideas</h2>
+  <div class="ideas-add-row">
+    <input type="text" id="wip-title" placeholder="Title…" autocomplete="off" />
+    <input type="text" id="wip-notes" placeholder="Notes (optional)" autocomplete="off" />
+    <button class="btn btn-secondary" onclick="addWIP()">Add</button>
+  </div>
+  <div class="wip-list" id="wip-list"></div>
+</section>
+
+<section>
+  <h2>Load existing memory</h2>
+  <div class="load-row">
+    <select id="load-select">
+      <option value="">Select a memory…</option>
+    </select>
+    <button class="btn btn-secondary" onclick="doLoadMemory()">Load</button>
+  </div>
+</section>
 
 <section>
   <h2>Memory Details</h2>
@@ -326,7 +419,9 @@
   const state = { songs: [], otherSongs: [] };
 
   function addSong(section, song) {
-    state[section].push({ ...song, relevantDate: '' });
+    // spotifyImageUrl stored separately so toSaveSong can send it for download
+    // while imageUrl is used only for display (may differ for loaded songs)
+    state[section].push({ ...song, relevantDate: '', spotifyImageUrl: song.imageUrl || '', existingImageLink: '' });
     renderSongs(section);
   }
 
@@ -521,16 +616,19 @@
     const btn  = document.getElementById('other-toggle');
     body.classList.remove('open');
     btn.textContent = '▸ Add related songs';
+    // refresh dropdown so the newly saved memory appears
+    populateMemoriesList();
   }
 
   function toSaveSong(s) {
     return {
-      name:            s.name     || '',
-      songLink:        s.songLink || '',
-      artists:         s.artists  || [],
-      relevantDate:    s.relevantDate || '',
-      imageName:       s.imageName   || '',
-      spotifyImageUrl: s.imageUrl    || '',
+      name:              s.name              || '',
+      songLink:          s.songLink          || '',
+      artists:           s.artists           || [],
+      relevantDate:      s.relevantDate      || '',
+      imageName:         s.imageName         || '',
+      spotifyImageUrl:   s.spotifyImageUrl   || '',
+      existingImageLink: s.existingImageLink || '',
     };
   }
 
@@ -544,9 +642,149 @@
       .replace(/"/g, '&quot;');
   }
 
+  // ── Memory ideas ────────────────────────────────────────────────────────────
+  async function loadWIPs() {
+    try {
+      const r = await fetch('/api/wips');
+      if (!r.ok) return;
+      renderWIPs(await r.json());
+    } catch (_) {}
+  }
+
+  function renderWIPs(wips) {
+    const list = document.getElementById('wip-list');
+    if (!wips || !wips.length) {
+      list.innerHTML = '<p class="wip-empty">No ideas yet.</p>';
+      return;
+    }
+    list.innerHTML = '';
+    wips.forEach(w => {
+      const el = document.createElement('div');
+      el.className = 'wip-entry';
+      el.innerHTML = `
+        <div class="wip-info">
+          <span class="wip-title">${esc(w.title)}</span>
+          ${w.notes ? `<span class="wip-notes">· ${esc(w.notes)}</span>` : ''}
+          <span class="wip-date">${esc(w.created)}</span>
+        </div>
+        <button class="wip-start">→ Start</button>
+        <button class="wip-delete" title="Discard">×</button>
+      `;
+      el.querySelector('.wip-start').addEventListener('click', () => startWIP(w.title, w.id));
+      el.querySelector('.wip-delete').addEventListener('click', () => deleteWIP(w.id));
+      list.appendChild(el);
+    });
+  }
+
+  async function addWIP() {
+    const titleEl = document.getElementById('wip-title');
+    const notesEl = document.getElementById('wip-notes');
+    const title = titleEl.value.trim();
+    if (!title) { titleEl.focus(); return; }
+    try {
+      const r = await fetch('/api/wips', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, notes: notesEl.value.trim() }),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      titleEl.value = '';
+      notesEl.value = '';
+      loadWIPs();
+    } catch (err) {
+      console.error('addWIP:', err);
+    }
+  }
+
+  async function deleteWIP(id) {
+    try {
+      await fetch(`/api/wip?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
+      loadWIPs();
+    } catch (_) {}
+  }
+
+  function startWIP(title, id) {
+    document.getElementById('title').value = title;
+    slugEdited = false;
+    onTitleInput(title);
+    deleteWIP(id);
+    document.getElementById('title').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('title').focus();
+  }
+
+  // ── Load existing memory ────────────────────────────────────────────────────
+  async function populateMemoriesList() {
+    try {
+      const r = await fetch('/api/memories');
+      if (!r.ok) return;
+      const memories = await r.json();
+      const select = document.getElementById('load-select');
+      select.innerHTML = '<option value="">Select a memory…</option>';
+      memories.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.outputTitle;
+        opt.textContent = m.title || m.outputTitle;
+        select.appendChild(opt);
+      });
+    } catch (_) {}
+  }
+
+  async function doLoadMemory() {
+    const slug = document.getElementById('load-select').value;
+    if (!slug) return;
+
+    const statusEl = document.getElementById('status');
+    statusEl.textContent = 'Loading…';
+    statusEl.className = 'status-msg';
+
+    try {
+      const r = await fetch(`/api/memory?slug=${encodeURIComponent(slug)}`);
+      if (!r.ok) throw new Error(await r.text());
+      const mem = await r.json();
+
+      document.getElementById('title').value      = mem.title      || '';
+      document.getElementById('outputTitle').value = mem.outputTitle || '';
+      slugEdited = true;
+      document.getElementById('shortTitle').value = mem.shortTitle || '';
+      document.getElementById('subtitle').value   = mem.subtitle   || '';
+      document.getElementById('date').value        = mem.date       || '';
+      document.getElementById('content').value     = mem.content    || '';
+
+      const toLoadedSong = s => ({
+        name:              s.name         || '',
+        songLink:          s.songLink     || '',
+        artists:           s.artists      || [],
+        relevantDate:      s.relevantDate || '',
+        imageUrl:          s.imageLink ? '/' + s.imageLink : '',
+        spotifyImageUrl:   '',
+        imageName:         '',
+        existingImageLink: s.imageLink || '',
+      });
+
+      state.songs      = (mem.songs      || []).map(toLoadedSong);
+      state.otherSongs = (mem.otherSongs || []).map(toLoadedSong);
+      renderSongs('songs');
+      renderSongs('otherSongs');
+
+      if (state.otherSongs.length > 0) {
+        document.getElementById('other-songs-body').classList.add('open');
+        document.getElementById('other-toggle').textContent = '▾ Related songs';
+      }
+
+      statusEl.textContent = `Loaded "${mem.title}"`;
+      statusEl.className = 'status-msg ok';
+    } catch (err) {
+      statusEl.textContent = `Error: ${err.message}`;
+      statusEl.className = 'status-msg err';
+    }
+  }
+
   // ── Init ────────────────────────────────────────────────────────────────────
+  loadWIPs();
+  populateMemoriesList();
   setupSearch('songs-search',       'songs-results',       'songs');
   setupSearch('other-songs-search', 'other-songs-results', 'otherSongs');
+  document.getElementById('wip-title').addEventListener('keydown', e => { if (e.key === 'Enter') addWIP(); });
 </script>
 </body>
 </html>

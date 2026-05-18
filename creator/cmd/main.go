@@ -10,8 +10,11 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
+	"time"
 	"unicode"
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
@@ -28,6 +31,7 @@ var indexHTML []byte
 const (
 	minDesiredWidth = 100
 	maxDesiredWidth = 350
+	wipsPath        = "src/wip-memories/ideas.yaml"
 )
 
 var (
@@ -61,12 +65,55 @@ type FetchRequest struct {
 }
 
 type SaveSong struct {
-	Name            string               `json:"name"`
-	SongLink        string               `json:"songLink"`
-	Artists         []sonostalgia.Artist `json:"artists"`
-	RelevantDate    string               `json:"relevantDate"`
-	ImageName       string               `json:"imageName"`
-	SpotifyImageURL string               `json:"spotifyImageUrl"`
+	Name              string               `json:"name"`
+	SongLink          string               `json:"songLink"`
+	Artists           []sonostalgia.Artist `json:"artists"`
+	RelevantDate      string               `json:"relevantDate"`
+	ImageName         string               `json:"imageName"`
+	SpotifyImageURL   string               `json:"spotifyImageUrl"`
+	ExistingImageLink string               `json:"existingImageLink"`
+}
+
+type MemoryListItem struct {
+	OutputTitle string `json:"outputTitle"`
+	Title       string `json:"title"`
+}
+
+// MemoryResponse is used for /api/memory — gives the frontend predictable camelCase keys.
+type MemoryResponse struct {
+	OutputTitle string         `json:"outputTitle"`
+	ShortTitle  string         `json:"shortTitle"`
+	Title       string         `json:"title"`
+	Subtitle    string         `json:"subtitle"`
+	Date        string         `json:"date"`
+	Content     string         `json:"content"`
+	Songs       []SongResponse `json:"songs"`
+	OtherSongs  []SongResponse `json:"otherSongs"`
+}
+
+type SongResponse struct {
+	Name         string           `json:"name"`
+	SongLink     string           `json:"songLink"`
+	Artists      []ArtistResponse `json:"artists"`
+	RelevantDate string           `json:"relevantDate"`
+	ImageLink    string           `json:"imageLink"`
+}
+
+type ArtistResponse struct {
+	Name string `json:"name"`
+	Link string `json:"link"`
+}
+
+type WIPEntry struct {
+	ID      string `yaml:"id"      json:"id"`
+	Title   string `yaml:"title"   json:"title"`
+	Notes   string `yaml:"notes"   json:"notes"`
+	Created string `yaml:"created" json:"created"`
+}
+
+type AddWIPRequest struct {
+	Title string `json:"title"`
+	Notes string `json:"notes"`
 }
 
 type SaveRequest struct {
@@ -106,13 +153,190 @@ func main() {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.Write(indexHTML)
 	})
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("src/assets"))))
+	http.HandleFunc("/api/memories", s.handleListMemories)
+	http.HandleFunc("/api/memory", s.handleGetMemory)
 	http.HandleFunc("/api/search", s.handleSearch)
 	http.HandleFunc("/api/fetch-song", s.handleFetchSong)
 	http.HandleFunc("/api/save", s.handleSave)
+	http.HandleFunc("/api/wips", s.handleWIPs)
+	http.HandleFunc("/api/wip", s.handleDeleteWIP)
 
 	addr := ":8765"
 	fmt.Printf("Sonostalgia Creator → http://localhost%s\n", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
+}
+
+func loadWIPs() ([]WIPEntry, error) {
+	data, err := os.ReadFile(wipsPath)
+	if os.IsNotExist(err) {
+		return []WIPEntry{}, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	var entries []WIPEntry
+	if err := yaml.Unmarshal(data, &entries); err != nil {
+		return nil, err
+	}
+	if entries == nil {
+		entries = []WIPEntry{}
+	}
+	return entries, nil
+}
+
+func saveWIPs(entries []WIPEntry) error {
+	if err := os.MkdirAll("src/wip-memories", 0755); err != nil {
+		return err
+	}
+	data, err := yaml.Marshal(entries)
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(wipsPath, data, 0644)
+}
+
+func (s *server) handleWIPs(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		entries, err := loadWIPs()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(entries)
+
+	case http.MethodPost:
+		var req AddWIPRequest
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			http.Error(w, "bad request", http.StatusBadRequest)
+			return
+		}
+		if strings.TrimSpace(req.Title) == "" {
+			http.Error(w, "title is required", http.StatusBadRequest)
+			return
+		}
+		entries, err := loadWIPs()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		entry := WIPEntry{
+			ID:      fmt.Sprintf("%d", time.Now().UnixNano()),
+			Title:   strings.TrimSpace(req.Title),
+			Notes:   strings.TrimSpace(req.Notes),
+			Created: time.Now().Format("2006-01-02"),
+		}
+		entries = append(entries, entry)
+		if err := saveWIPs(entries); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(entry)
+
+	default:
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
+func (s *server) handleDeleteWIP(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodDelete {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	id := r.URL.Query().Get("id")
+	if id == "" {
+		http.Error(w, "id required", http.StatusBadRequest)
+		return
+	}
+	entries, err := loadWIPs()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	filtered := entries[:0]
+	for _, e := range entries {
+		if e.ID != id {
+			filtered = append(filtered, e)
+		}
+	}
+	if err := saveWIPs(filtered); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusNoContent)
+}
+
+func (s *server) handleListMemories(w http.ResponseWriter, r *http.Request) {
+	files, err := filepath.Glob("src/memories/*.yaml")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	items := make([]MemoryListItem, 0, len(files))
+	for _, f := range files {
+		mem, err := sonostalgia.LoadMemory(f)
+		if err != nil {
+			log.Printf("warning: skipping %s: %v", f, err)
+			continue
+		}
+		items = append(items, MemoryListItem{OutputTitle: mem.OutputTitle, Title: mem.Title})
+	}
+	sort.Slice(items, func(i, j int) bool { return items[i].Title < items[j].Title })
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(items)
+}
+
+func (s *server) handleGetMemory(w http.ResponseWriter, r *http.Request) {
+	slug := r.URL.Query().Get("slug")
+	if !validSlugRe.MatchString(slug) {
+		http.Error(w, "invalid slug", http.StatusBadRequest)
+		return
+	}
+
+	mem, err := sonostalgia.LoadMemory(fmt.Sprintf("src/memories/%s.yaml", slug))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(memoryToResponse(mem))
+}
+
+func memoryToResponse(mem *sonostalgia.Memory) MemoryResponse {
+	mapSongs := func(songs []sonostalgia.Song) []SongResponse {
+		out := make([]SongResponse, len(songs))
+		for i, s := range songs {
+			artists := make([]ArtistResponse, len(s.Artists))
+			for j, a := range s.Artists {
+				artists[j] = ArtistResponse{Name: a.Name, Link: a.Link}
+			}
+			out[i] = SongResponse{
+				Name:         s.Name,
+				SongLink:     s.SongLink,
+				Artists:      artists,
+				RelevantDate: s.RelevantDate,
+				ImageLink:    s.ImageLink,
+			}
+		}
+		return out
+	}
+
+	return MemoryResponse{
+		OutputTitle: mem.OutputTitle,
+		ShortTitle:  mem.PageTitle,
+		Title:       mem.Title,
+		Subtitle:    mem.Subtitle,
+		Date:        mem.Date,
+		Content:     mem.Content,
+		Songs:       mapSongs(mem.Songs),
+		OtherSongs:  mapSongs(mem.OtherSongs),
+	}
 }
 
 func (s *server) handleSearch(w http.ResponseWriter, r *http.Request) {
@@ -256,7 +480,7 @@ func (s *server) handleSave(w http.ResponseWriter, r *http.Request) {
 func processSongs(songs []SaveSong) ([]sonostalgia.Song, error) {
 	out := make([]sonostalgia.Song, 0, len(songs))
 	for _, s := range songs {
-		imageLink := ""
+		imageLink := s.ExistingImageLink
 		if s.SpotifyImageURL != "" && s.ImageName != "" {
 			dest := fmt.Sprintf("src/assets/%s.jpg", s.ImageName)
 			if err := downloadImage(s.SpotifyImageURL, dest); err != nil {
