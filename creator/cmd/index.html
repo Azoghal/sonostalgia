@@ -500,10 +500,27 @@
       const { path } = await r.json();
       statusEl.textContent = `Saved → ${path}${rebuild ? '  ·  Site rebuilt' : ''}`;
       statusEl.className = 'status-msg ok';
+      resetForm();
     } catch (err) {
       statusEl.textContent = `Error: ${err.message}`;
       statusEl.className = 'status-msg err';
     }
+  }
+
+  function resetForm() {
+    ['title', 'outputTitle', 'shortTitle', 'subtitle', 'date', 'content'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    slugEdited = false;
+    state.songs = [];
+    state.otherSongs = [];
+    renderSongs('songs');
+    renderSongs('otherSongs');
+    // collapse other songs if open
+    const body = document.getElementById('other-songs-body');
+    const btn  = document.getElementById('other-toggle');
+    body.classList.remove('open');
+    btn.textContent = '▸ Add related songs';
   }
 
   function toSaveSong(s) {

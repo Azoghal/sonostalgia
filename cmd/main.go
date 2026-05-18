@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
 )
@@ -18,7 +19,7 @@ func main() {
 	funcMap := template.FuncMap{
 		"markdown": func(md string) template.HTML {
 			var buf bytes.Buffer
-			goldmark.Convert([]byte(md), &buf)
+			goldmark.New(goldmark.WithExtensions(extension.Strikethrough)).Convert([]byte(md), &buf)
 			return template.HTML(buf.String())
 		},
 		"statcard": func(label string, value any) sonostalgia.StatCard {
