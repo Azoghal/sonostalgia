@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonostalgia Creator</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      padding: 2rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+    .tagline { color: #555; font-size: 0.85rem; margin-bottom: 2rem; }
+
+    section {
+      background: #181818;
+      border: 1px solid #252525;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.3rem;
+      margin-top: 0.9rem;
+    }
+    label:first-of-type { margin-top: 0; }
+
+    input[type=text], textarea {
+      width: 100%;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 5px;
+      color: #e0e0e0;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input[type=text]:focus, textarea:focus { border-color: #1DB954; }
+
+    textarea { resize: vertical; min-height: 160px; line-height: 1.5; }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .row label { margin-top: 0; }
+
+    /* Song cards */
+    .song-list { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.85rem; min-height: 0; }
+
+    .song-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 6px;
+      padding: 0.7rem;
+    }
+
+    .song-thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .song-thumb-placeholder {
+      width: 52px;
+      height: 52px;
+      border-radius: 4px;
+      background: #222;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-size: 1.3rem;
+    }
+
+    .song-meta { flex: 1; min-width: 0; }
+    .song-name { font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .song-artists { font-size: 0.75rem; color: #666; margin-top: 0.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .song-date-input {
+      width: 100%;
+      margin-top: 0.5rem;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      color: #ccc;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .song-date-input:focus { border-color: #1DB954; }
+    .song-date-input::placeholder { color: #444; }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #3a3a3a;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      line-height: 1;
+      transition: color 0.15s;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    .remove-btn:hover { color: #c0392b; }
+
+    /* Search widget */
+    .search-widget { position: relative; }
+
+    .search-input {
+      width: 100%;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 5px;
+      color: #e0e0e0;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .search-input:focus { border-color: #1DB954; }
+    .search-input::placeholder { color: #3a3a3a; }
+
+    .search-results {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 6px;
+      z-index: 200;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    }
+    .search-results.hidden { display: none; }
+
+    .search-result {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.55rem 0.75rem;
+      cursor: pointer;
+      transition: background 0.1s;
+      border-bottom: 1px solid #222;
+    }
+    .search-result:last-child { border-bottom: none; }
+    .search-result:hover { background: #222; }
+
+    .result-thumb {
+      width: 38px;
+      height: 38px;
+      border-radius: 3px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #222;
+    }
+    .result-thumb-placeholder {
+      width: 38px;
+      height: 38px;
+      border-radius: 3px;
+      background: #222;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+    }
+
+    .result-info { flex: 1; min-width: 0; }
+    .result-name { font-size: 0.85rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .result-sub { font-size: 0.72rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 0.1rem; }
+
+    .search-status { padding: 0.7rem 0.75rem; font-size: 0.82rem; color: #555; }
+    .search-status.error { color: #c0392b; }
+
+    /* Other songs toggle */
+    .other-songs-toggle {
+      background: none;
+      border: 1px solid #252525;
+      color: #555;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: inherit;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .other-songs-toggle:hover { border-color: #3a3a3a; color: #aaa; }
+
+    .collapsible { display: none; }
+    .collapsible.open { display: block; }
+
+    /* Save row */
+    .save-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.9rem;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn:active { opacity: 0.7; }
+    .btn-primary { background: #1DB954; color: #000; }
+    .btn-secondary { background: #222; color: #ccc; border: 1px solid #333; }
+
+    .status-msg { font-size: 0.82rem; color: #555; }
+    .status-msg.ok { color: #1DB954; }
+    .status-msg.err { color: #c0392b; }
+  </style>
+</head>
+<body>
+
+<h1>Sonostalgia Creator</h1>
+<p class="tagline">Fill in the details, search for songs, save.</p>
+
+<section>
+  <h2>Memory Details</h2>
+  <label>Title</label>
+  <input type="text" id="title" placeholder="Walks around the Pub Loop with Otto" oninput="onTitleInput(this.value)" />
+  <div class="row" style="margin-top:0.9rem">
+    <div>
+      <label>Slug</label>
+      <input type="text" id="outputTitle" placeholder="walks-with-otto" oninput="slugEdited=true" />
+    </div>
+    <div>
+      <label>Short title</label>
+      <input type="text" id="shortTitle" placeholder="Pub Loop with Otto" />
+    </div>
+  </div>
+  <label>Subtitle</label>
+  <input type="text" id="subtitle" placeholder="Optional subtitle" />
+  <label>Date</label>
+  <input type="text" id="date" placeholder="2016 - 2023" />
+</section>
+
+<section>
+  <h2>Songs</h2>
+  <div class="song-list" id="songs-list"></div>
+  <div class="search-widget">
+    <input type="text" class="search-input" id="songs-search"
+      placeholder="Search for a song, or paste a Spotify URL…" autocomplete="off" />
+    <div class="search-results hidden" id="songs-results"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Content</h2>
+  <textarea id="content" placeholder="Write your memory here. Markdown is supported."></textarea>
+</section>
+
+<section>
+  <h2>Other Songs</h2>
+  <button class="other-songs-toggle" id="other-toggle" onclick="toggleOtherSongs()">▸ Add related songs</button>
+  <div class="collapsible" id="other-songs-body">
+    <div class="song-list" id="other-songs-list"></div>
+    <div class="search-widget">
+      <input type="text" class="search-input" id="other-songs-search"
+        placeholder="Search for a song, or paste a Spotify URL…" autocomplete="off" />
+      <div class="search-results hidden" id="other-songs-results"></div>
+    </div>
+  </div>
+</section>
+
+<div class="save-row">
+  <button class="btn btn-primary" onclick="saveMemory(false)">Save Memory</button>
+  <button class="btn btn-secondary" onclick="saveMemory(true)">Save + Rebuild Site</button>
+  <span class="status-msg" id="status"></span>
+</div>
+
+<script>
+  // ── Slug auto-generation ────────────────────────────────────────────────────
+  let slugEdited = false;
+
+  function onTitleInput(val) {
+    if (slugEdited) return;
+    document.getElementById('outputTitle').value = val
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-');
+  }
+
+  // ── Song state ──────────────────────────────────────────────────────────────
+  // Each section holds an array of song objects from the API plus relevantDate.
+  const state = { songs: [], otherSongs: [] };
+
+  function addSong(section, song) {
+    state[section].push({ ...song, relevantDate: '' });
+    renderSongs(section);
+  }
+
+  function removeSong(section, idx) {
+    state[section].splice(idx, 1);
+    renderSongs(section);
+  }
+
+  function renderSongs(section) {
+    const listEl = document.getElementById(section === 'songs' ? 'songs-list' : 'other-songs-list');
+    listEl.innerHTML = '';
+    state[section].forEach((song, i) => {
+      const card = document.createElement('div');
+      card.className = 'song-card';
+      const artistText = (song.artists || []).map(a => a.name).join(', ');
+      card.innerHTML = `
+        ${song.imageUrl
+          ? `<img class="song-thumb" src="${esc(song.imageUrl)}" alt="" />`
+          : `<div class="song-thumb-placeholder">♪</div>`}
+        <div class="song-meta">
+          <div class="song-name">${esc(song.name)}</div>
+          <div class="song-artists">${esc(artistText)}</div>
+          <input class="song-date-input"
+            placeholder="Relevant date  (e.g. March 2017)"
+            value="${esc(song.relevantDate)}"
+            oninput="state['${section}'][${i}].relevantDate = this.value" />
+        </div>
+        <button class="remove-btn" onclick="removeSong('${section}', ${i})" title="Remove">×</button>
+      `;
+      listEl.appendChild(card);
+    });
+  }
+
+  // ── Search ──────────────────────────────────────────────────────────────────
+  const spotifyURLPat = /open\.spotify\.com\/track\/([A-Za-z0-9]+)/;
+
+  function setupSearch(inputId, resultsId, section) {
+    const input   = document.getElementById(inputId);
+    const results = document.getElementById(resultsId);
+    let timer = null;
+
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+      const val = input.value.trim();
+      if (!val) { hide(results); return; }
+
+      if (spotifyURLPat.test(val)) {
+        hide(results);
+        doFetchSong(val, section, input);
+        return;
+      }
+
+      timer = setTimeout(() => doSearch(val, section, input, results), 300);
+    });
+
+    input.addEventListener('keydown', e => { if (e.key === 'Escape') hide(results); });
+
+    document.addEventListener('click', e => {
+      if (!input.contains(e.target) && !results.contains(e.target)) hide(results);
+    });
+  }
+
+  function hide(el) { el.innerHTML = ''; el.classList.add('hidden'); }
+
+  async function doSearch(query, section, inputEl, resultsEl) {
+    resultsEl.innerHTML = '<div class="search-status">Searching…</div>';
+    resultsEl.classList.remove('hidden');
+
+    try {
+      const r = await fetch('/api/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      const tracks = await r.json();
+
+      resultsEl.innerHTML = '';
+      if (!tracks.length) {
+        resultsEl.innerHTML = '<div class="search-status">No results</div>';
+        return;
+      }
+
+      tracks.forEach(track => {
+        const row = document.createElement('div');
+        row.className = 'search-result';
+        const artists = (track.artists || []).map(a => a.name).join(', ');
+        row.innerHTML = `
+          ${track.imageUrl
+            ? `<img class="result-thumb" src="${esc(track.imageUrl)}" alt="" />`
+            : `<div class="result-thumb-placeholder">♪</div>`}
+          <div class="result-info">
+            <div class="result-name">${esc(track.name)}</div>
+            <div class="result-sub">${esc(artists)}${track.albumName ? ' · ' + esc(track.albumName) : ''}</div>
+          </div>
+        `;
+        row.addEventListener('click', () => {
+          addSong(section, track);
+          inputEl.value = '';
+          hide(resultsEl);
+        });
+        resultsEl.appendChild(row);
+      });
+    } catch (err) {
+      resultsEl.innerHTML = `<div class="search-status error">${esc(err.message)}</div>`;
+    }
+  }
+
+  async function doFetchSong(url, section, inputEl) {
+    const resultsId = section === 'songs' ? 'songs-results' : 'other-songs-results';
+    const resultsEl = document.getElementById(resultsId);
+    resultsEl.innerHTML = '<div class="search-status">Fetching…</div>';
+    resultsEl.classList.remove('hidden');
+
+    try {
+      const r = await fetch('/api/fetch-song', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url }),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      const track = await r.json();
+      addSong(section, track);
+      inputEl.value = '';
+      hide(resultsEl);
+    } catch (err) {
+      resultsEl.innerHTML = `<div class="search-status error">${esc(err.message)}</div>`;
+    }
+  }
+
+  // ── Other songs toggle ──────────────────────────────────────────────────────
+  function toggleOtherSongs() {
+    const body = document.getElementById('other-songs-body');
+    const btn  = document.getElementById('other-toggle');
+    const open = body.classList.toggle('open');
+    btn.textContent = open ? '▾ Related songs' : '▸ Add related songs';
+  }
+
+  // ── Save ────────────────────────────────────────────────────────────────────
+  async function saveMemory(rebuild) {
+    const statusEl = document.getElementById('status');
+    statusEl.textContent = rebuild ? 'Saving and rebuilding…' : 'Saving…';
+    statusEl.className = 'status-msg';
+
+    const outputTitle = document.getElementById('outputTitle').value.trim();
+    if (!outputTitle) {
+      statusEl.textContent = 'Slug is required';
+      statusEl.className = 'status-msg err';
+      return;
+    }
+
+    const payload = {
+      outputTitle,
+      title:      document.getElementById('title').value.trim(),
+      shortTitle: document.getElementById('shortTitle').value.trim(),
+      subtitle:   document.getElementById('subtitle').value.trim(),
+      date:       document.getElementById('date').value.trim(),
+      content:    document.getElementById('content').value,
+      songs:      state.songs.map(toSaveSong),
+      otherSongs: state.otherSongs.map(toSaveSong),
+      rebuild,
+    };
+
+    try {
+      const r = await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      const { path } = await r.json();
+      statusEl.textContent = `Saved → ${path}${rebuild ? '  ·  Site rebuilt' : ''}`;
+      statusEl.className = 'status-msg ok';
+    } catch (err) {
+      statusEl.textContent = `Error: ${err.message}`;
+      statusEl.className = 'status-msg err';
+    }
+  }
+
+  function toSaveSong(s) {
+    return {
+      name:            s.name     || '',
+      songLink:        s.songLink || '',
+      artists:         s.artists  || [],
+      relevantDate:    s.relevantDate || '',
+      imageName:       s.imageName   || '',
+      spotifyImageUrl: s.imageUrl    || '',
+    };
+  }
+
+  // ── Utils ───────────────────────────────────────────────────────────────────
+  function esc(s) {
+    if (!s) return '';
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ── Init ────────────────────────────────────────────────────────────────────
+  setupSearch('songs-search',       'songs-results',       'songs');
+  setupSearch('other-songs-search', 'other-songs-results', 'otherSongs');
+</script>
+</body>
+</html>

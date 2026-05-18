@@ -10,6 +10,7 @@ tasks:
     tasks:
       - build-templater
       - build-songfetcher
+      - build-creator
     
   build-templater:
     desc: "build the webpage builder go binary"
@@ -24,6 +25,20 @@ tasks:
     cmds: 
       - mkdir -p ../../build
       - go build -o ../../build/songfetcher
+
+  build-creator:
+    desc: "build the memory creator web server"
+    dir: creator/cmd
+    cmds:
+      - mkdir -p ../../build
+      - go build -o ../../build/creator
+
+  start-creator:
+    desc: "build and start the memory creator at http://localhost:8765"
+    deps:
+      - build-creator
+    cmds:
+      - ./build/creator
 
   build-webpage:
     desc: "do the templating and produce website artefacts"
