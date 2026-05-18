@@ -1,0 +1,22 @@
+outputTitle: csgo-mapping
+shortTitle: CS:GO Mapping
+title: CS:GO Mapping
+subtitle: ""
+date: "2015"
+songs:
+    - name: Invincible
+      link: https://open.spotify.com/track/5CECOmlbCKYmhqz0veY0ZY
+      artists:
+        - name: Deaf Kev
+          link: https://open.spotify.com/artist/7kANMNctYR16urrVo7GTSR
+      relevantDate: ""
+      imageLink: assets/invincible.jpg
+    - name: Faded
+      link: https://open.spotify.com/track/7gHs73wELdeycvS48JfIos
+      artists:
+        - name: Alan Walker
+          link: https://open.spotify.com/artist/7vk5e3vY1uw9plTHJAMwjN
+      relevantDate: ""
+      imageLink: assets/faded.jpg
+content: Making CS:GO maps using Hammer and managing to play 5v5 on them with the boys. Before I was using Spotify, lots of YouTube compilations of EDM were listened to.
+otherSongs: []
