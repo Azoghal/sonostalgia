@@ -28,6 +28,9 @@ import (
 //go:embed index.html
 var indexHTML []byte
 
+//go:embed login.html
+var loginHTML []byte
+
 const (
 	minDesiredWidth = 100
 	maxDesiredWidth = 350
@@ -133,6 +136,11 @@ func main() {
 		log.Fatal("failed to load .env")
 	}
 
+	secret := os.Getenv("AUTH_SECRET")
+	if secret == "" {
+		log.Fatal("AUTH_SECRET must be set in .env")
+	}
+
 	ctx := context.Background()
 	config := &clientcredentials.Config{
 		ClientID:     os.Getenv("SPOTIFY_CLIENT_ID"),
@@ -149,22 +157,30 @@ func main() {
 		ctx:    ctx,
 	}
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// Authenticated routes — all behind the cookie check.
+	authed := http.NewServeMux()
+	authed.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.Write(indexHTML)
 	})
-	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("src/assets"))))
-	http.HandleFunc("/api/memories", s.handleListMemories)
-	http.HandleFunc("/api/memory", s.handleGetMemory)
-	http.HandleFunc("/api/search", s.handleSearch)
-	http.HandleFunc("/api/fetch-song", s.handleFetchSong)
-	http.HandleFunc("/api/save", s.handleSave)
-	http.HandleFunc("/api/wips", s.handleWIPs)
-	http.HandleFunc("/api/wip", s.handleDeleteWIP)
+	authed.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("src/assets"))))
+	authed.HandleFunc("/api/memories", s.handleListMemories)
+	authed.HandleFunc("/api/memory", s.handleGetMemory)
+	authed.HandleFunc("/api/search", s.handleSearch)
+	authed.HandleFunc("/api/fetch-song", s.handleFetchSong)
+	authed.HandleFunc("/api/save", s.handleSave)
+	authed.HandleFunc("/api/wips", s.handleWIPs)
+	authed.HandleFunc("/api/wip", s.handleDeleteWIP)
+
+	// Top-level mux: login routes are public, everything else is protected.
+	mux := http.NewServeMux()
+	mux.HandleFunc("/login", handleLoginPage(loginHTML))
+	mux.HandleFunc("/api/login", makeLoginHandler(secret))
+	mux.Handle("/", authMiddleware(secret, authed))
 
 	addr := ":8765"
 	fmt.Printf("Sonostalgia Creator → http://localhost%s\n", addr)
-	log.Fatal(http.ListenAndServe(addr, nil))
+	log.Fatal(http.ListenAndServe(addr, mux))
 }
 
 func loadWIPs() ([]WIPEntry, error) {

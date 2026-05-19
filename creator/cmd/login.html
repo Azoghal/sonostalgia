@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonostalgia — Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #181818;
+      border: 1px solid #252525;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 320px;
+    }
+    h1 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+    .tagline { color: #555; font-size: 0.82rem; margin-bottom: 1.75rem; }
+    label { display: block; font-size: 0.8rem; color: #666; margin-bottom: 0.3rem; }
+    input[type=password] {
+      width: 100%;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 5px;
+      color: #e0e0e0;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 1rem;
+    }
+    input[type=password]:focus { border-color: #1DB954; }
+    .err { font-size: 0.8rem; color: #c0392b; margin-bottom: 0.75rem; }
+    button {
+      width: 100%;
+      background: #1DB954;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 0.6rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sonostalgia</h1>
+    <p class="tagline">Creator</p>
+    <form method="POST" action="/api/login">
+      <label for="secret">Secret</label>
+      <input type="password" id="secret" name="secret" autofocus autocomplete="current-password" />
+      <script>
+        if (new URLSearchParams(location.search).get('err')) {
+          document.write('<p class="err">Incorrect secret.</p>');
+        }
+      </script>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
