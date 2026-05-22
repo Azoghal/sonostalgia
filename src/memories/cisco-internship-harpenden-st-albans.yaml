@@ -1,0 +1,80 @@
+outputTitle: cisco-internship-harpenden-st-albans
+shortTitle: Harpenden & St Albans
+title: Cisco Internship, Harpenden & St Albans
+subtitle: Cisco internship in Harpenden, summer of 2022.
+date: "2022"
+songs:
+    - name: Teletype
+      link: https://open.spotify.com/track/6o0IytQVis0KjQCkcFtqGD
+      artists:
+        - name: Everything Everything
+          link: https://open.spotify.com/artist/1HOeqtP7tHkKNJNLzQ2tnr
+      relevantDate: ""
+      imageLink: assets/teletype.jpg
+    - name: Everyone's A Winner
+      link: https://open.spotify.com/track/0Gf2hEQEVBcwgy40JyO9LK
+      artists:
+        - name: Flyte
+          link: https://open.spotify.com/artist/3ZKyADicHqelBDeADLutiu
+      relevantDate: ""
+      imageLink: assets/everyones-a-winner.jpg
+    - name: Set The Fairlight
+      link: https://open.spotify.com/track/1T7W7uWSS8v7fYiVjucv6z
+      artists:
+        - name: Islands
+          link: https://open.spotify.com/artist/1ObsHTgbvIYOfSHohHuV6n
+      relevantDate: ""
+      imageLink: assets/set-the-fairlight.jpg
+    - name: One Way Out of a Hole
+      link: https://open.spotify.com/track/0YiJMqmkiEw2jsUGlj4sa4
+      artists:
+        - name: Cloud Cult
+          link: https://open.spotify.com/artist/6R1T5YklzC9OFugGt8RwOD
+      relevantDate: ""
+      imageLink: assets/one-way-out-of-a-hole.jpg
+    - name: Booster Seat
+      link: https://open.spotify.com/track/5th1bFGGaXLM7wDBJpcF06
+      artists:
+        - name: Spacey Jane
+          link: https://open.spotify.com/artist/6V70yeZQCoSR2M3fyW8qiA
+      relevantDate: ""
+      imageLink: assets/booster-seat.jpg
+    - name: Help Me
+      link: https://open.spotify.com/track/6mDoWBhUIBufjUc7LkG63W
+      artists:
+        - name: Low Cut Connie
+          link: https://open.spotify.com/artist/4taNHtYxfIWIHu07FBw7ih
+      relevantDate: ""
+      imageLink: assets/help-me.jpg
+content: Fantastically hot summer, eating lunch watching cricket on the common. Witnessing the grass  parch over the course of the heatwave. Fantastic petrichor when running around the cathedral and Verulamium park. Flat brained drives back to St Albans. Safety third and the weekly commute back home to play cricket. A little bit of EVE when possible. Interesting spare room.
+otherSongs:
+    - name: Corinne
+      link: https://open.spotify.com/track/6guXQ9rHmOofkqp8uHYO8r
+      artists:
+        - name: Metronomy
+          link: https://open.spotify.com/artist/54QMjE4toDfiCryzYWCpXX
+      relevantDate: ""
+      imageLink: assets/corinne.jpg
+    - name: Stardust Chords
+      link: https://open.spotify.com/track/07p7PALHp6ZcD5tmlbO94N
+      artists:
+        - name: Greta Van Fleet
+          link: https://open.spotify.com/artist/4NpFxQe2UvRCAjto3JqlSl
+      relevantDate: ""
+      imageLink: assets/stardust-chords.jpg
+    - name: The Dripping Tap
+      link: https://open.spotify.com/track/0o6rOggbaLEvtwUHNztuD2
+      artists:
+        - name: King Gizzard & The Lizard Wizard
+          link: https://open.spotify.com/artist/6XYvaoDGE0VmRt83Jss9Sn
+      relevantDate: ""
+      imageLink: assets/the-dripping-tap.jpg
+    - name: 'Keyboard Suite No. 3 (Set I) in D Minor, HWV 428: VI. Presto'
+      link: https://open.spotify.com/track/795t4y1VfUwlUPbGpyMhwH
+      artists:
+        - name: George Frideric Handel
+          link: https://open.spotify.com/artist/1QL7yTHrdahRMpvNtn6rI2
+        - name: Philip Edward Fisher
+          link: https://open.spotify.com/artist/3iEF3lnsArDpnKXvg6Zys7
+      relevantDate: ""
+      imageLink: assets/keyboard-suite-no-3-set-i-in-d-minor-hwv-428-vi-presto.jpg
