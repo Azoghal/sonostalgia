@@ -147,13 +147,9 @@ func main() {
 		ClientSecret: os.Getenv("SPOTIFY_CLIENT_SECRET"),
 		TokenURL:     spotifyauth.TokenURL,
 	}
-	token, err := config.Token(ctx)
-	if err != nil {
-		log.Fatalf("couldn't get spotify token: %v", err)
-	}
 
 	s := &server{
-		client: spotify.New(spotifyauth.New().Client(ctx, token)),
+		client: spotify.New(config.Client(ctx)),
 		ctx:    ctx,
 	}
 
