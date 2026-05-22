@@ -9,7 +9,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -18,6 +17,7 @@ import (
 	"unicode"
 
 	sonostalgia "github.com/azoghal/sonostalgia/src"
+	"github.com/azoghal/sonostalgia/src/templater"
 	"github.com/joho/godotenv"
 	spotify "github.com/zmb3/spotify/v2"
 	spotifyauth "github.com/zmb3/spotify/v2/auth"
@@ -474,14 +474,9 @@ func (s *server) handleSave(w http.ResponseWriter, r *http.Request) {
 	log.Printf("saved %s", yamlPath)
 
 	if req.Rebuild {
-		out, err := exec.Command("./build/templater").CombinedOutput()
-		if err != nil {
-			http.Error(w, fmt.Sprintf("rebuild failed: %v\n%s", err, out), http.StatusInternalServerError)
+		if err := templater.Run("src", "output"); err != nil {
+			http.Error(w, fmt.Sprintf("rebuild failed: %v", err), http.StatusInternalServerError)
 			return
-		}
-		cmd := exec.Command("sh", "-c", "mkdir -p ./output/assets && cp -r ./src/assets/. ./output/assets/")
-		if err := cmd.Run(); err != nil {
-			log.Printf("warning: asset copy failed: %v", err)
 		}
 	}
 
