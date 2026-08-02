@@ -1,0 +1,26 @@
+outputTitle: airbnbox
+shortTitle: ""
+title: Airbnbox
+subtitle: ""
+date: 2020
+songs:
+    - name: Ballin'
+      link: https://open.spotify.com/track/3L0C6GjgC8Bx5bh1dyjnoz
+      artists:
+        - name: Digital Farm Animals
+          link: https://open.spotify.com/artist/5fyDppLDl1juIu1BcUT5zh
+        - name: Gaullin
+          link: https://open.spotify.com/artist/1aQwKFn00nswXRDUDipm0K
+        - name: Tim North
+          link: https://open.spotify.com/artist/6HFqz4oBQvXZbT9ocuBGyQ
+      relevantDate: ""
+      imageLink: assets/ballin.jpg
+    - name: Bittersweet
+      link: https://open.spotify.com/track/4uawMXx8VZ7WMrjAVOaCMe
+      artists:
+        - name: Lianne La Havas
+          link: https://open.spotify.com/artist/2RP4pPHTXlQpDnO9LvR7Yt
+      relevantDate: ""
+      imageLink: assets/bittersweet.jpg
+content: Airbnbox with A on Rustat Road, the bridge, long walks into town.
+otherSongs: []

@@ -1,0 +1,24 @@
+outputTitle: winter-woodwork
+shortTitle: ""
+title: Winter Woodwork
+subtitle: ""
+date: Nov 2022
+songs:
+    - name: Chinatown (feat. Bruce Springsteen)
+      link: https://open.spotify.com/track/1AA3ZjLo9tD2iSZAs2svyj
+      artists:
+        - name: Bleachers
+          link: https://open.spotify.com/artist/2eam0iDomRHGBypaDQLwWI
+        - name: Bruce Springsteen
+          link: https://open.spotify.com/artist/3eqjTLE0HfPfh78zjh6TqT
+      relevantDate: ""
+      imageLink: assets/chinatown-feat-bruce-springsteen.jpg
+    - name: Goodmorning
+      link: https://open.spotify.com/track/1K13OsIMc0HLgEJHZoWH78
+      artists:
+        - name: Bleachers
+          link: https://open.spotify.com/artist/2eam0iDomRHGBypaDQLwWI
+      relevantDate: ""
+      imageLink: assets/goodmorning.jpg
+content: Doing some woodwork in the shed. Building extenders for old desk.
+otherSongs: []

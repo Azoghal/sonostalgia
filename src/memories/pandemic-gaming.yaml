@@ -1,0 +1,32 @@
+outputTitle: pandemic-gaming
+shortTitle: Pandemic Gaming
+title: Pandemic Gaming
+subtitle: ""
+date: 2020-2021
+songs:
+    - name: '{ The Dreamer''s Hotel }'
+      link: https://open.spotify.com/track/0kKLYJlTi8RRR18vTOBsKd
+      artists:
+        - name: Enter Shikari
+          link: https://open.spotify.com/artist/31jvzuB4ikftPQZJwrYfCF
+      relevantDate: ""
+      imageLink: assets/the-dreamers-hotel.jpg
+    - name: Sad Happy
+      link: https://open.spotify.com/track/3SymLVYLCAyO8b0hC3SV13
+      artists:
+        - name: Circa Waves
+          link: https://open.spotify.com/artist/6hl5k4gLl1p3sjhHcb57t2
+      relevantDate: ""
+      imageLink: assets/sad-happy.jpg
+    - name: The Last Garrison
+      link: https://open.spotify.com/track/0GuhR40HX5IPfEh4FQSX5u
+      artists:
+        - name: Enter Shikari
+          link: https://open.spotify.com/artist/31jvzuB4ikftPQZJwrYfCF
+      relevantDate: ""
+      imageLink: assets/the-last-garrison.jpg
+content: |-
+    Playing games in the study shared with S. Stardew valley with A. Hollow Knight. F1 2019.
+
+    Working on platformer inspired by hollow knight.
+otherSongs: []
